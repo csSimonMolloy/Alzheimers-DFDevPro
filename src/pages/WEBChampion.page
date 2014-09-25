@@ -1,0 +1,341 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampion" action="{!loginRedirect}">
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body id="champion-dashboard" class="dashboard ">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu isChampion="{!isChampion}" isConverted="{!isChampionConverted}"/>
+                <apex:outputPanel rendered="{!isChampionConverted}">
+                    <a class="btn btn-primary badge-action" href="/WEBBadgeOrder">Order 50 badges / infocards</a>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!!isChampionConverted}">
+                    <span class="btn badge-action disabled">Order 50 badges / infocards</span>
+                </apex:outputPanel>
+                
+                
+                <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span>
+                    
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                    <apex:outputPanel rendered="{!IF(ISBLANK(messageArea),FALSE,TRUE)}" >
+                        <div class="alert {!messageAreaClass}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {!messageArea}        
+                        </div>
+                    </apex:outputPanel>    
+                    <apex:outputPanel rendered="{!newChampionRegistration}" >
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            You have successfully converted to a Dementia Friends Champion            
+                        </div>
+                    </apex:outputPanel>             
+                    <apex:outputPanel rendered="{!registeredAsChampion}" >
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            Now you have entered your code you can create a <a href="/WEBChampionCreateEditSession">Friends' information session</a>            
+                        </div>
+                    </apex:outputPanel>
+                    <!-- 2014-05-27 : CSL : New panel to show Events Require Reporting prompt -->
+                    <apex:outputPanel rendered="{!showReportingPrompt}" >
+                        <div class="alert lightbox-msg">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            You have sessions available that need to be reported on            
+                        </div>
+                    </apex:outputPanel>
+                </div>
+                <apex:outputPanel rendered="{!showSaveConfirmation}">
+                <div id="message-center">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        Your details have been successfully changed.            
+                    </div>
+                </div>
+                </apex:outputPanel>
+                 
+                <apex:outputPanel rendered="{!isChampion && NOT(isChampionConverted)}" >                       
+                    <section class="enter-code">
+                        <p>Have you attended your Champions' training? Enter your code here:</p> 
+                        <apex:form styleClass="aerian-form admin-form form-horizontal">
+                            <fieldset accept-charset="utf-8">
+                                <div class="control-group element-code element-type-text required">
+                                    <div class="controls">
+                                        <apex:inputText id="code" value="{!championCode}" styleClass=" input-text input;" style="width:140px;"/>
+                                    </div>
+                                </div>
+                                <div class="controls">
+                                    <apex:commandButton id="submit" value="Submit" styleClass=" input-submit btn" action="{!registerCode}"/>
+                                </div>
+                            </fieldset>
+                        </apex:form>
+                    </section>
+                </apex:outputPanel>
+                <div class="dash-panel">
+                    <div class="dash-panel-content">
+                        <apex:outputPanel rendered="{!IF(friendCount > 0,'TRUE','FALSE')}">
+                            <p><span class="large">{!friendCount} people</span> total number of Dementia Friends you have got involved</p>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(friendCount == 0,'TRUE','FALSE')}">
+                            <p class="large">Welcome</p>
+                            <p>Create a session <br>and get started</br></p>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="dash-panel-footer">
+                        <apex:outputPanel rendered="{!isChampion && NOT(isChampionConverted)}" >
+                            <span class="btn disabled">Create a session<span> (disabled)</span></span>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!isChampionConverted}" >
+                            <a class="btn btn-secondary" href="WEBChampionCreateEditSession">Create a session</a>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+
+                <div class="dash-panel">
+                    <apex:outputPanel rendered="{!isChampionConverted}">
+                        <div class="dash-panel-content resource"></div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!NOT(isChampionConverted)}">
+                        <div class="dash-panel-content">
+                            <p>Enter your Dementia Friends Champions' code to download resources to run information sessions</p>
+                        </div>
+                    </apex:outputPanel>
+                            
+                    <div class="dash-panel-footer">
+                        <apex:outputPanel rendered="{!NOT(isChampionConverted)}" >
+                            <span class="btn disabled">Session resources<span> (disabled)</span></span>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!isChampionConverted}" >
+                            <a class="btn btn-secondary" href="WEBChampionSessionResources">Session resources</a>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+
+                <div class="dash-panel dash-panel-last">
+                    <div class="dash-panel-content">
+                    <p><span class="large">Actions</span> recorded by Dementia Friends who have attended your information sessions will appear here</p>
+                    </div>
+                    <apex:outputPanel rendered="{!IF(friendActionCount == 0,'TRUE','FALSE')}">
+                        <div class="dash-panel-footer">
+                            <span class="btn disabled">Friends' actions<span> (disabled)</span></span>
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(friendActionCount > 0,'TRUE','FALSE')}">
+                        <div class="dash-panel-footer">
+                            <a class="btn btn-secondary" href="WEBChampionActionList">Friends' actions</a>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+
+                <div class="task-list">
+                    <header class="header">
+                        <h3>My Dementia Friends Champion status</h3>
+                    </header>
+                    <div class="snippet snippet-rich_text rte">
+                        <ul class="list">
+                            <li>Registered an account</li>
+                            <li class="{!IF(isChampionConverted,'','incomplete')}">{!championCodeText}
+                                <apex:outputPanel rendered="{!NOT(isChampionConverted)}" >                               
+                                    <apex:form styleClass="aerian-form admin-form form-horizontal" >
+                                        <fieldset accept-charset="utf-8">
+                                            <div class="control-group element-code element-type-text required">
+                                                <div class="controls">
+                                                    <apex:inputText id="code" value="{!championCode}" styleClass=" input-text input" />
+                                                </div>
+                                            </div>
+                                            <div class="controls">
+                                                <apex:commandButton action="{!registerCode}" id="submit" value="Submit" styleClass=" input-submit btn" />
+                                            </div>
+                                        </fieldset>
+                                    </apex:form>
+                                </apex:outputPanel>
+                            </li>
+                            <li class="{!IF(sessionCount > 0, '', 'incomplete')}">Sessions published: <span>{!sessionCount}</span></li>
+                            <li class="{!IF(friendCount > 0, '', 'incomplete')}">Dementia Friends you've got involved: <span>{!friendCount}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="actions">
+                    <ul>
+                        <apex:outputPanel rendered="{!NOT(isChampionConverted)}" >
+                            <li>
+                                <a class="btn btn-primary call-to-action" href="WEBTraining">Find training <i class="icon-play icon-white"></i></a>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary call-to-action" href="/WEBChampionPreTrainingMaterials">Pre-training material <i class="icon-play icon-white"></i></a>
+                            </li>
+                            <li>
+                                <span class="btn disabled call-to-action">Create a session <i class="icon-play icon-grey"></i></span>
+                            </li>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!isChampionConverted}">
+                            <li>
+                                <a class="btn btn-primary call-to-action" href="WEBChampionCreateEditSession">Create a session <i class="icon-play icon-white"></i></a>
+                            </li>
+                        </apex:outputPanel>
+                    </ul>
+                </div>
+                
+                 <!-- NEW SESSION LIST CODE -->
+                
+                <apex:outputPanel rendered="{!upcomingEvents.size > 0}" >
+                    <div class="clear"/>
+                    <div class="clear"/>
+                    <div class="my-sessions">
+                        <h2>My sessions</h2>
+                        <div class="crud-list">
+                            <table class="table table-bordered table-striped ">
+                            <thead>
+                            <tr>
+                                <th width="153px">Date</th>
+                                <th width="327px">Address</th>
+                                <th>Session Link/URL</th>
+                                <th width="120px">Attendees</th>
+                                <th width="110px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!-- APEX REPEAT TAG GOES HERE -->
+                                <apex:repeat value="{!upcomingEvents}" var="event">
+                                <tr class="">                        
+                                        <td>
+                                            <apex:outputText value="{0,date,dd MMM yyyy,HH:mm }"><apex:param value="{!event.Event_Date_Time__c}"/></apex:outputText>
+                                        </td>                        
+                                        <td>{!event.Street__c}, {!event.City__c}, {!event.County__c}, {!event.Postcode__c}</td>
+                                        <td><a href="{!baseSiteSecureURL}WEBSessionDetails?id={!event.Id}" class="external" target="_blank" title="Opens in new window"/>{!baseSiteSecureURL}WEBSessionDetails?id={!event.Id}</td>
+                                        <td>{!event.Number_of_Attendee_Records__c}</td>
+                                        <td class="list-actions grouped-button">
+                                            <div class="btn-group">
+                                                <a class="btn btn-small" href="WEBChampionCreateEditSession?eventId={!event.Id}">Edit session</a>
+                                                <a class="btn btn-small" target="_blank" href="WEBChampionSessionPrintAttendees?eventId={!event.Id}">Print Attendees</a>
+                                            </div>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>
+                                <!-- END OF APEX REPEAT TAG -->
+                                
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                
+                <!-- END OF NEW SESSION LIST CODE -->
+                <!-- MY TRAINING LIST -->
+                 
+                <apex:outputPanel rendered="{!AND(myTraining.size>0,!isChampionConverted)}">
+                    <div class="clear"/>
+                    <div class="clear"/>
+                    <div class="my-sessions">
+                        <h2>My sessions</h2>
+                        <div class="crud-list">
+                            <table class="table table-bordered table-striped ">
+                            <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Date</th>
+                                <th>Town / City</th>
+                                <th>Postcode</th>
+                                <th>Attendees</th>
+                                <apex:outputPanel rendered="{!showViewDetailsButton}">
+                                <th class="list-actions">&nbsp;</th>
+                                </apex:outputPanel>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!-- APEX REPEAT TAG GOES HERE -->
+                                <apex:repeat value="{!myTraining}" var="event">
+                                <tr>
+                                    <td><span class="crud-widget-date crud-widget-date-time ">
+                                    <apex:outputText value="{0,date,HH:mm}">
+                                        <apex:param value="{!event.DF_Event__r.Event_Date_Time__c}"/>
+                                    </apex:outputText>                                      
+                                    </span></td>
+                                    <td><span class="crud-widget-date crud-widget-date-date ">
+                                    <apex:outputText value="{0,date,dd MMM yyyy}">
+                                        <apex:param value="{!event.DF_Event__r.Event_Date_Time__c}"/>
+                                    </apex:outputText>
+                                    </span></td>
+                                    <td>{!event.DF_Event__r.City__c}</td>
+                                    <td>{!event.DF_Event__r.Postcode__c}</td>
+                                    <td>{!event.DF_Event__r.Number_of_Attendees__c}</td>
+                                    <apex:outputPanel rendered="{!showViewDetailsButton}">
+                                    <td class="list-actions grouped-button">
+                                        <div class="btn-group">
+                                            <apex:outputPanel rendered="{!isSession}">
+                                                <a href="WEBSessionDetails?Id={!event.DF_Event__r.Id}" class="book-session btn btn-primary btn-large">View details</a>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!isTraining}">
+                                                <a href="WEBTrainingDetails?Id={!event.DF_Event__r.Id}" class="book-session btn btn-primary btn-large">View details</a>
+                                            </apex:outputPanel>
+                                        </div>
+                                    </td>
+                                    </apex:outputPanel>
+                                </tr>
+                                </apex:repeat>
+                                <!-- END OF APEX REPEAT TAG -->
+                                
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                
+                <!-- END OF MY TRAINING LIST -->
+            </section>
+           
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+    <apex:outputPanel rendered="{!showReportingPrompt}" >
+        
+        <style>
+        .main-dialog-class .ui-widget-header{background: repeat-x scroll 34px 42px #FCF8E3;font-size:16px;border:0;}
+        .main-dialog-class .ui-widget-content{color:black;background:#E3E1E1;}
+        </style>
+        <script>
+            $(function(){
+                $('#jq_dialog').dialog({
+                    title: 'Tell us about your sessions',
+                    modal: true,
+                    resizable: false,
+                    width: 500,
+                    maxHeight: 400,
+                    closeText: 'fechar',
+                    show: 'fade',
+                    hide: 'fade',
+                    dialogClass: 'main-dialog-class'
+                });
+              });  
+        </script>
+        <div id="jq_dialog">You have sessions available that need to be reported on, please click on the <a href="/WEBChampionSessionFeedback">‘Tell us about your session’</a> tab</div>
+        
+    </apex:outputPanel>
+    </body>
+
+</apex:page>

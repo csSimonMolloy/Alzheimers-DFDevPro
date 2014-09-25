@@ -1,0 +1,69 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBFriendCreateAction" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="friend-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBFriendNavigationMenu />              
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                </div>          
+                <div class="intro">
+                    <h1>Tell us about your action</h1>
+                    <p></p>
+                </div>
+
+                <div class="form-wrapper">
+                    <apex:form styleClass="aerian-form admin-form form-horizontal">
+                        <fieldset accept-charset="utf-8">
+                            <div class="control-group element-name element-type-text required">
+                                <label for="name" class="control-label required">Action</label>
+                                <div class="controls">
+                                    <apex:inputText id="name" value="{!action}" styleClass="input-xxlarge aerian input-text input" />
+                                    <p class="help-block">The name of the pledge. For example, &quot;Teach my brother about dementia.&quot;</p>
+                                </div>
+                            </div>
+                            <div class="control-group element-public element-type-checkbox optional">
+                                <label for="public" class="control-label optional">Public</label>
+                                <div class="controls">
+                                    <apex:inputCheckbox id="public" value="{!publicCheckbox}" styleClass=" input-checkbox input" />
+                                    <p class="help-block">Leave this box ticked if you are happy for your pledge to be displayed on our website</p>
+                                </div>
+                            </div>
+                            <fieldset id="fieldset-actions" class="form-actions">
+                                <apex:commandButton id="save" value="Save changes" styleClass="btn-primary input-submit btn" action="{!save}" />
+                                <apex:commandButton id="cancel" value="Cancel" styleClass="btn" action="{!cancel}" />
+                            </fieldset>
+                        </fieldset>
+                    </apex:form>
+                </div>                
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+    
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

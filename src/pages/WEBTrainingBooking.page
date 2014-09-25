@@ -1,0 +1,91 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampion" action="{!loginRedirect}">
+
+    <style>
+input[type="text"]  {
+background-color: #FFFFFF;
+border: 1px solid #CCCCCC;
+box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
+transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+color: #666;
+display: inline-block;
+height: 20px;
+line-height: 20px;
+margin-bottom: 9px;
+padding: 4px 6px;
+width: 368px;
+border-radius: 0;
+}
+
+table tbody tr td {
+border:none !important;
+}
+
+table td {
+ padding:3px !important;
+
+}
+
+</style>
+    
+    
+    <!-- <c:WEBMeta title="Dementia Friends" /> -->
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body id="champion-dashboard" class="dashboard ">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu isChampion="{!isChampion}" isConverted="{!isChampionConverted}"/>
+                <apex:outputPanel rendered="{!isChampionConverted}">
+                    <a class="btn btn-primary badge-action" href="/WEBBadgeOrder">Order 50 badges / infocards</a>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!!isChampionConverted}">
+                    <span class="btn badge-action disabled">Order 50 badges / infocards</span>
+                </apex:outputPanel>
+                <!-- <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span> -->
+                <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span>                  
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                    <apex:outputPanel rendered="{!IF(ISBLANK(messageArea),FALSE,TRUE)}" >
+                        <div class="alert {!messageAreaClass}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {!messageArea}        
+                        </div>
+                    </apex:outputPanel>                 
+                </div> 
+
+            <div class="intro">
+                <div >
+                <c:WEBChampionContactDetails />
+                </div>
+            </div>
+
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

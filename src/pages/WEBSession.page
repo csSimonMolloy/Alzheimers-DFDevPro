@@ -1,0 +1,329 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false"  controller="WEBSession" cache="false">
+        
+<style>
+.session-filter .btn-primary {
+width: 119px !important;
+ }
+ 
+  
+ 
+</style>
+
+    
+    <!-- <c:WEBMeta title="Dementia Friends" /> -->
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+   
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body class="">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    
+    <section class="page-content">
+            <div class="wrapper">
+            <div class="sessions">
+                <section class="secondary-navigation">
+                    <h3>Friends</h3>
+                        <ul class="navigation">
+                            <li>
+                                <a href="WEBArticle?page=what-is-a-friend">What is a Friend?</a>
+                            </li>
+                            <li>
+                                <a href="WEBArticle?page=friend-am-eligible">Am I eligible?</a>
+                            </li>
+                            <li>
+                                <a href="WEBArticle?page=friend-how-else-can-i-help">How else can I help?</a>
+                            </li>
+                            <li class="active">
+                                <a href="WEBSession">Find sessions</a>
+                            </li>
+
+                        </ul>
+                        <div class="session-filter">
+                            <h2>Filter list by</h2>
+                            <!-- <form class="aerian-form admin-form form-horizontal"> -->
+                            <apex:form styleClass="aerian-form admin-form form-horizontal" html-oninput="out.value = document.getElementById('page:form:range').value">
+                            <fieldset>
+                                <fieldset id="fieldset-location">
+                                    <legend>Location</legend>
+                                    <div class="control-group element-locality element-type-radio optional">
+                                        <div class="controls">
+                                        <label for="locality-1" style="background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+                                        <input type="radio" name="locality" id="locality-1" value="1" class=" input-radio input" onclick="document.getElementById('{!$Component.postcode}').value = ''; return;"/>All Available</label>
+                                        <br/>
+                                        <label for="locality-0" style="background-image: none; background-position: initial initial; background-repeat: initial initial;">
+                                        <input type="radio" name="locality" id="locality-0" value="1" class=" input-radio input"/>Results near:</label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group element-postcode element-type-text optional">
+                                        <label for="postcode" class="control-label optional">Postcode</label>
+                                        <div class="controls" style="background-image: none; background-position: initial initial; background-repeat: initial initial;">
+                                         <script>
+                                         //2014-06-12 : CSL : We have had to include the code inline here, as the method was not being called
+                                         //from the Script Library
+                                         function showSlider(){
+                                             //$('radio[id$=locality-0]').prop('checked',true);
+                                             $('#locality-0').prop('checked',true);                                           
+                                             //sliderShowFunction();
+                                            if($('#locality-0').is(':checked')) {
+                                                $('.element-distance').css('display', 'block');
+                                                $('.session-filter .element-postcode div').css('background', '#F6F6F6');
+                                                $(".element-locality label[for!='locality-1']").css('background', '#F6F6F6');
+                                                $(".element-locality label[for!='locality-0']").css('background', 'none');
+                                                $(".session-filter #postcode").css('color', '#555555');
+                                                $('form.sort-form').css('display', 'block');
+                                            } else {
+                                                $('.element-distance').css('display', 'none');
+                                                $('.session-filter .element-postcode div').css('background', 'none');
+                                                $(".element-locality label[for!='locality-1']").css('background', 'none');
+                                                $(".element-locality label[for!='locality-0']").css('background', '#F6F6F6');
+                                                $(".session-filter #postcode").css('color', '#ccc');
+                                                $('form.sort-form').css('display', 'none');
+                                            }
+                                         }
+                                        </script>
+                                        <apex:inputText onclick="javascript:showSlider();" value="{!searchPostCode}" id="postcode" html-placeholder="e.g. TR54 3CD" styleClass=" input-text input" style="color: rgb(85, 85, 85);"/>
+                                        <!-- 2014-05-14 : CSL : Removing 'or City' from below -->
+                                        <p class="help-block">Enter postcode or town</p>
+                                        </div>
+                                    </div>
+                                    <div class="control-group element-distance element-type-slider optional" style="{!IF((tempNumber > 0),'display: block;','display: none;')}">
+                                        <label for="distance" class="control-label optional">Distance</label>
+                                        <div class="controls">
+                                    
+                                   
+                                             <apex:input id="range" value="{!tempNumber}" type="number" styleClass="as-slider input-slider input"/>
+        
+                                    
+                                    <!-- <input type="text" name="distance" id="distance" value="25" class="as-slider input-slider input" style="display: none;"/>--> 
+                                          <!--  <apex:inputText id="distance" value="{!searchRange}" styleClass="as-slider input-slider input" style="display: none;"/>    
+                                 
+                                            <div class="as-slider-target ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" id="panel1">
+                                                <span class="slider-label left-label">5 mi</span>
+                                                <span class="slider-label right-label">50 mi</span>
+                                                <span class="slider-point-label" style="left: 7.5px;">25 mi</span>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 44.44444444444444%;"></a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+
+                                </fieldSet>
+                                <fieldset id="fieldset-status"><legend>Status</legend>
+                                    <div class="control-group element-unavailable element-type-checkbox optional">
+                                    <label for="unavailable" class="control-label optional">Show unavailable</label>
+                                        <div class="controls">
+                                        <!-- <input type="hidden" name="unavailable" value="0"/>
+                                        <input type="checkbox" name="unavailable" id="unavailable" value="1" class=" input-checkbox input"/> -->
+                                        <apex:inputCheckbox value="{!showUnavailable}" styleClass=" input-checkbox input"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="controls">
+                                    <apex:actionFunction action="{!applyFilter}" name="applyFilter"/>
+                                        <!-- <apex:commandLink value="Apply Filter" styleClass="btn-primary input-submit btn" action="{!applyFilter}" rerender="outerPanel"/> -->
+                                        <apex:commandLink value="Apply Filter" styleClass="btn-primary input-submit btn" action="{!applyFilter}"/>
+                                        <!-- <input type="submit" value="Apply Filter" onclick="javascript:applyFilter();"/> -->
+                                    <!-- <input type="submit" name="applyfilter" id="applyfilter" value="Apply Filter" class="btn-primary input-submit btn"/> -->
+                                </div>
+                            </fieldset>
+                            </apex:form>
+                            <!-- </form> -->
+                        </div>                    
+                </section>
+                <!-- <apex:outputPanel id="outerPanel"> -->
+                <section class="content">
+                    
+                        <ul class="breadcrumb">
+                            <li class="item"><a href="WEBHome">Home</a> &gt;</li>
+                            <li class="item"><a href="WEBArticle?page=about">Get involved</a> &gt;</li>
+                            <li class="item">Friends' information sessions</li>
+                        </ul>
+                                     
+                    <h1>Friends' information sessions</h1>
+                    <div class="two-col nosplit">
+                        <div class="snippet snippet-rich_text rte">
+                            <p>As Dementia Friends Champions set up public Friends' information sessions they will automatically be displayed here.&nbsp;Friends' information sessions promoted on this website are only suitable for people aged under 18 if they are accompanied by an adult aged 18 or over.&nbsp;</p>
+                            <p>Please note - you need to have <a title="Register as a friend" href="WEBRegisterFriend">registered as a Dementia Friend </a> before you can book a place at an information session.</p>
+                            <p>You can keep track of Dementia Friends by signing up to the <a title="Dementia Friends Newsletter" href="WEBNewsLetterSignup">Dementia Friends e-newsletter</a>, following us on <a title="Opens in new window" href="https://twitter.com/DementiaFriends" class="external" target="_blank">Twitter <span> (external link)</span></a>and liking our <a title="Opens in new window" href="https://www.facebook.com/DementiaFriends" class="external" target="_blank">Facebook page<span> (external link)</span></a>.</p>
+                        </div>
+                    </div>
+
+                    <!-- <apex:outputPanel rendered="{!showRowLimit}">
+                        <div class="snippet snippet-rich_text rte">
+                            <p><strong>There are more than 100 events available.  Please use the Filter to find the nearest one to your postcode</strong></p>
+                        </div>
+                    </apex:outputPanel> -->
+
+                    <div class="session-container">
+                    <!-- <apex:outputPanel id="eventTableBody" rendered="{!eventList.size>0}"> -->
+                    <apex:outputPanel rendered="{!eventList.size>0}">
+                    <apex:form >
+                        <table>
+                            <tr>
+                                <td align="left">
+                                    <apex:outputPanel rendered="{!IF(startRecord > 0,TRUE,FALSE)}">
+                                        <apex:commandLink styleClass="btn btn-primary" action="{!previousPage}">Previous</apex:commandLink>&nbsp;
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!IF((startRecord+recordsPerPage) > noOfRecords, FALSE, TRUE)}">
+                                        <apex:commandLink styleClass="btn btn-primary" action="{!nextPage}">Next</apex:commandLink>&nbsp;
+                                    </apex:outputPanel>
+                                    Displaying {!startRecord+1} to {!IF((startRecord+recordsPerPage) > noOfRecords, noOfRecords, startRecord+recordsPerPage)} of {!noOfRecords} records.&nbsp;&nbsp;Show&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="10">
+                                        <apex:param assignTo="{!recordsPerPage}" value="10" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="20">
+                                        <apex:param assignTo="{!recordsPerPage}" value="20" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="50">
+                                        <apex:param assignTo="{!recordsPerPage}" value="50" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="100">
+                                        <apex:param assignTo="{!recordsPerPage}" value="100" />
+                                    </apex:commandLink>
+                                    &nbsp;per page.
+                                </td>
+                            </tr>
+                        </table>
+                    </apex:form>
+                    <table class="session-table table-spacing clickable-row-table">
+                    <thead>
+                    <tr>
+                        <th class="col1">Location</th>
+                        <th class="col2">Status</th>
+                        <th class="col3">Date</th>
+                        <th class="col4">Time</th>
+                        <th class="col5">Details</th>
+                        <th class="col6">&nbsp;</th>
+                    </tr>
+                    </thead>
+                    
+                    <apex:repeat value="{!eventList}" var="event">
+                    <tbody>
+                        <tr>
+                            <td class="col1 location">
+                                <strong>{!event.theEvent.City__c}</strong>
+                                <br/>
+                                {!event.theEvent.County__c}
+                                <br/>
+                                <br/>
+                                <strong>{!event.theEvent.Postcode__c}</strong>
+                            </td>                        
+                            <td class="col2"><div class="status {!IF(event.theEvent.Event_Status__c = 'Available','','unavailable')}">{!event.theEvent.Event_Status__c}</div></td>
+                            <td class="col3 date">
+                                {!event.eventMonth}
+                                <span>{!event.eventDay}</span>
+                            </td>
+                            <td class="col4 time">
+                                At
+                                <!-- <span><h1>{!event.eventTime}</h1></span> -->
+                                <span>{!event.eventHour}
+                                    <span>{!event.eventMin}</span>
+                                </span>
+                            </td>
+                            <td class="col5">{!event.theEvent.Event_Description__c}</td>
+                            <td class="col6 details"><a href="WEBSessionDetails?id={!event.theEvent.Id}" class="btn btn-primary" target="_self">Details<span> for {!event.theEvent.Location__c}</span></a></td>
+                        </tr>
+                    </tbody>
+                    </apex:repeat>
+                    </table>
+                    <apex:form >
+                        <table>
+                            <tr>
+                                <td align="left">
+                                    <apex:outputPanel rendered="{!IF(startRecord > 0,TRUE,FALSE)}">
+                                        <apex:commandLink styleClass="btn btn-primary" action="{!previousPage}">Previous</apex:commandLink>&nbsp;
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!IF((startRecord+recordsPerPage) > noOfRecords, FALSE, TRUE)}">
+                                        <apex:commandLink styleClass="btn btn-primary" action="{!nextPage}">Next</apex:commandLink>&nbsp;
+                                    </apex:outputPanel>
+                                    Displaying {!startRecord+1} to {!IF((startRecord+recordsPerPage) > noOfRecords, noOfRecords, startRecord+recordsPerPage)} of {!noOfRecords} records.&nbsp;&nbsp;Show&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="10">
+                                        <apex:param assignTo="{!recordsPerPage}" value="10" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="20">
+                                        <apex:param assignTo="{!recordsPerPage}" value="20" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="50">
+                                        <apex:param assignTo="{!recordsPerPage}" value="50" />
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn btn-primary" action="{!changeRecordsPerPage}" value="100">
+                                        <apex:param assignTo="{!recordsPerPage}" value="100" />
+                                    </apex:commandLink>
+                                    &nbsp;per page.
+                                </td>
+                            </tr>
+                        </table>
+                    </apex:form>
+                    </apex:outputPanel>
+                    </div>
+                    <apex:outputPanel rendered="{!eventList.size<=0}">
+                    <div class="no-sessions">
+                        <div class="snippet snippet-rich_text rte">
+                            <p>Sorry, there are no Friends' information sessions currently available in your area. Please enter your email address and we will notify you when a session is advertised near you.</p>    
+                        </div>
+                    </div>
+                    <h2>Save your search</h2>
+                    <!-- <div class="alert alert-success">Your search has been saved and you will be notified on: s.molloy@cloudsymphony.co.uk when a session is near you.</div> -->
+                    <apex:outputPanel rendered="{!showSuccess}">
+                        <div class="alert alert-success">
+                            <apex:outputText value="Your search has been saved and you will be notified on: {0} when a session is near you.">
+                                <apex:param value="{!savedSearch.Email__c}"/>
+                            </apex:outputText>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- <form class="aerian-form admin-form form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8" action=""> -->
+                    <apex:form styleClass="aerian-form admin-form form-horizontal">
+                    <fieldset accept-charset="utf-8">
+                        <div class="control-group element-SaveSearchEmail element-type-text required">
+                        <label for="SaveSearchEmail" class="control-label required">Email Address</label>
+                            <div class="controls">
+                                <!-- <input type="text" name="SaveSearchEmail" id="SaveSearchEmail" value="" class=" input-text input"/> -->
+                                <apex:inputText value="{!saveSearchEmail}" styleClass=" input-text input" id="SaveSearchEmail"/>
+                                <p class="help-block"><apex:outputText value="{!saveSearchSnippet.Body_Text__c}" escape="false"/></p>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <!-- <input type="submit" name="SaveSearch" id="SaveSearch" value="Save Search" class="btn-primary input-submit btn"> -->
+                            <apex:commandButton styleClass="btn-primary input-submit btn" value="Save Search" action="{!saveSearch}"/>
+                        </div>
+                    </fieldset>
+                    </apex:form>
+                    </apex:outputPanel>
+                </section>
+                <!-- </apex:outputPanel> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+<script>
+$(document).ready(function(){
+           if('{!searchPostCode}' == '') {
+                $('#locality-1').prop('checked', true);
+                $('#locality-0').prop('checked', false);
+           } else {
+                $('#locality-1').prop('checked', false);
+                $('#locality-0').prop('checked', true);
+                sliderShowFunction();
+           }
+       });
+       
+       </script>
+
+
+</apex:page>

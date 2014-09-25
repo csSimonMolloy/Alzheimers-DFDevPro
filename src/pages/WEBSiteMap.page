@@ -1,0 +1,87 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html">
+    
+    <!-- <c:WEBMeta title="Dementia Friends" /> -->
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body class="">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    
+    <section class="page-content">
+    <div class="wrapper">
+    <section class="main-content">
+            <h1>Site map</h1>
+
+            
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/WEBAboutPage">Get involved</a>
+                    <ul>
+                        <li>What is a Friend?
+                            <ul>
+                                <li><a href="/WEBArticle?page=what-is-a-friend">What is a Dementia Friend?</a></li>
+                                <li><a href="/WEBArticle?page=friend-am-eligible">Am I eligible?</a></li>
+                                <li><a href="/WEBArticle?page=friend-how-else-can-i-help">How else can I help?</a></li>
+                                <li><a href="/WEBSession">Find sessions</a></li>
+                            </ul>
+                        </li>
+                        <li>What is a Champion?
+                            <ul>
+                                <li><a href="/WEBArticle?page=what-is-a-champion">What is a Dementia Friends Champion?</a></li>
+                                <li><a href="/WEBArticle?page=champions-training">Champions' training</a></li>
+                                <li><a href="/WEBArticle?page=after-the-training">After the training</a></li>
+                                <li><a href="/WEBArticle?page=champion-am-eligible">Am I eligible?</a></li>
+                                <li><a href="/WEBArticle?page=what-should-i-consider">What should I consider?</a></li>
+                                <li><a href="/WEBTraining">Find training</a></li>
+                                <li><a href="/WEBArticle?page=champion-how-else-can-i-help">How else can I help?</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/WEBFAQs">FAQs</a></li>
+                <li><a href="/WEBArticle?page=what-is-dementia">What is dementia?</a></li>
+                <li><a href="/WEBNews">News &amp; Press</a></li>
+                <li><a href="/WEBContactForm">Contact</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/WEBLogin">Sign in</a></li>
+                <li><a href="/WEBRegister">Register</a>
+                    <ul>
+                        <li><a href="/WEBRegisterFriend">Register as a Dementia Friend</a></li>
+                        <li><a href="/WEBRegisterChampion">Register as a Dementia Friends Champion</a></li>
+                    </ul>
+                </li>
+                <li><a href="/WEBNewsLetterSignup">e-Newsletter sign up</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/WEBArticle?page=website-history">Version 1.1</a></li>
+                <li><a href="/WEBArticle?page=terms-and-conditions">Terms &amp; Conditions</a></li>
+                <li><a href="/WEBArticle?page=privacy-policy">Privacy policy</a></li>
+                <li><a href="/WEBArticle?page=partners">Partners</a></li>
+            </ul>
+
+            
+        </section>
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

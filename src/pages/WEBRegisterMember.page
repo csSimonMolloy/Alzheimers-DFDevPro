@@ -1,0 +1,148 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBRegisterFriend">
+    
+    <!-- <c:WEBMeta title="" /> -->
+    <c:WEBMetaNoCSS title="" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <apex:pageMessages />
+
+    <section id="register-friend" class="registration">
+        <section class="page-content ">
+            <div class="wrapper">               
+                <section class="main-content">
+                    <h1>Register as a Dementia Friend</h1>
+                    <div class="snippet snippet-rich_text rte">
+                        <p>Please register as a Dementia Friend if you would like to take a Friends' <a title="Information sessions" href="../session.html">information session.</a> We need you to register as a Dementia Friend so that we can keep your details secure and the Dementia Friends Champion running your Friends' information session knows you are attending. </p>    
+                    </div>                
+                    <apex:form styleClass="aerian-form admin-form form-horizontal form-register" forceSSL="true">
+                    <fieldset accept-charset="utf-8">
+                        <fieldset id="fieldset-accept" class="display-group">
+                            <div class="control-group element-country element-type-radio optional">
+                                <label for="country" class="control-label optional">Country of residence</label>
+                                <div class="controls">
+                                    <label for="country-England">
+                                        <input type="radio" name="country" id="country-England" value="England" checked="checked" class=" input-radio input" />England
+                                    </label>
+                                    <label for="country-Wales">
+                                        <input type="radio" name="country" id="country-Wales" value="Wales" class=" input-radio input" />Wales</label>
+                                        <p class="help-block">If you don't live in England or Wales see <a href="../article/about-friends/friend-how-else-can-i-help.html">What else can I do?</a></p>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="display-group">
+                                <div class="controls">
+                                    <section class="facebook-login">
+                                        <header class="header">
+                                            <h2>Facebook login</h2>
+                                        </header>
+                                        <p>Login with facebook for quick and easy access to the Dementia Friends network</p>
+                                        <a href="#" id="fbc-login-button" class="facebook-button">Facebook</a>
+                                        <p>Having trouble logging in with Facebook? <a href="setpassword.html">Click here</a> to set a password for your Dementia Friends account.</p>
+                                    </section>
+                                </div>
+                            </div>
+                            <fieldset id="fieldset-personal" class="display-group">
+                                <legend>Personal details</legend>
+
+                                <div class="control-group element-title element-type-select required">
+                                    <label for="title" class="control-label required">Title</label>
+                                    <div class="controls">
+                                        <select name="title" id="title" class=" input-select input">
+                                            <option value="" label="Select...">Select...</option>
+                                            <option value="Mr." label="Mr.">Mr.</option>
+                                            <option value="Mrs." label="Mrs.">Mrs.</option>
+                                            <option value="Miss" label="Miss">Miss</option>
+                                            <option value="Ms." label="Ms.">Ms.</option>
+                                            <option value="Other" label="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group element-firstName element-type-text required">
+                                    <label for="firstName" class="control-label required">First name</label>
+                                    <div class="controls">
+                                        <apex:inputText value="{!firstName}" id="firstName" styleClass=" input-text input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-lastName element-type-text required">
+                                    <label for="lastName" class="control-label required">Last name</label>
+                                    <div class="controls">
+                                        <apex:inputText id="lastName" value="{!lastName}" styleClass=" input-text input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-postcode element-type-text required">
+                                    <label for="postcode" class="control-label required">Postcode</label>
+                                    <div class="controls">
+                                        <apex:inputText id="postcode" value="{!postCode}" styleClass=" input-text input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-telephone element-type-text required">
+                                    <label for="telephone" class="control-label required">Contact number</label>
+                                    <div class="controls">
+                                        <apex:inputText id="telephone" value="{!telephone}" styleClass=" input-text input" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset id="fieldset-account" class="display-group">
+                                <legend>Account details</legend>
+                                <div class="control-group element-email element-type-text required">
+                                    <label for="email" class="control-label required">Email address</label>
+                                    <div class="controls">
+                                        <apex:inputText id="email" value="{!emailAddress}" styleClass=" input-text input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-password element-type-password required">
+                                    <label for="password" class="control-label required">Password</label>
+                                    <div class="controls">
+                                        <apex:inputSecret id="password" value="{!password}" styleClass=" input-password input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-password2 element-type-password required">
+                                    <label for="password2" class="control-label required">Re-enter password</label>
+                                    <div class="controls">
+                                        <apex:inputSecret id="password2" value="{!password2}" styleClass=" input-password input" />
+                                    </div>
+                                </div>
+                                <div class="control-group element-newsletter element-type-checkbox optional">
+                                    <label for="newsletter" class="control-label optional">Newsletter</label>
+                                    <div class="controls">
+                                        <input type="hidden" name="newsletter" value="0" />
+                                        <apex:inputCheckbox id="newsletter" value="{!newsletter}" styleClass=" input-checkbox input" />
+                                        <p class="help-block">Sign up to Dementia Friends e-newsletter and further communications from Alzheimers Society</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="fieldset-actions">
+                                <div class="controls">
+                                    <apex:commandButton action="{!registerFriend}" id="save" value="Register" styleClass=" btn btn-primary input-submit btn" />
+                                </div>
+                            </fieldset>
+                        </fieldset>
+                    </apex:form>                
+                </section>
+            </div>
+        </section>      
+    </section> 
+    
+    
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

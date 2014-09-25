@@ -1,0 +1,48 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBBadgeOrder" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body id="champion-dashboard" class="dashboard ">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu isChampion="{!isChampion}" isConverted="{!isConverted}"/>
+                <a class="btn btn-primary {!IF(isChampion,'badge-action','disabled')}" href="/WEBBadgeOrder">Order 50 badges / infocards</a>
+                <!-- NOTE : The line below will come from a snippet when its built -->
+                <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span>
+                    
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div class="badge-thanks">
+                    <div class="snippet snippet-rich_text rte">
+                        <p>Many thanks for ordering 50 Dementia Friends badges and infocards, these should be given to all new Dementia Friends after they have attended an Information session.</p><p>Your order will be delivered in the next 10 working days.</p><p>Best wishes,</p><p>Dementia Friends</p><p>www.dementiafriends.org.uk&nbsp;</p>    
+                    </div>
+                </div> 
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

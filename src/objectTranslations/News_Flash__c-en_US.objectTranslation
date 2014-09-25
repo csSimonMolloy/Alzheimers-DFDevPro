@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>News Flash</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>News Flashes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Date to be published --></label>
+        <name>Date_to_be_published__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsActive --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Body --></label>
+        <name>Main_Body__c</name>
+    </fields>
+    <layouts>
+        <layout>News Flash Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,215 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBSession">
+    <!-- Google Maps functionality -->
+    <script type="text/javascript" src="https://www.google.com/jsapi?sensor=false"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"/>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"/>
+    
+    <script type="text/javascript"> 
+    //google.load("maps","2");
+            
+    $(document).ready(function() {
+   
+      var map;
+      var marker;
+      var mapOptions = {
+        zoom: 15,
+      };
+      
+      var geocoder = new google.maps.Geocoder();
+      var address = "{!selectedEvent.theEvent.Street__c}, " + "{!selectedEvent.theEvent.City__c}, " + "{!selectedEvent.theEvent.Postcode__c}";
+      
+      var infowindow = new google.maps.InfoWindow({
+        content: "<b>{!selectedEvent.theEvent.Name}</b>"
+      });
+      
+      geocoder.geocode( { address: address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK && results.length) {
+          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+          
+            //create map
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+          
+            //center map
+            map.setCenter(results[0].geometry.location);
+            
+            //create marker
+            marker = new google.maps.Marker({
+                position: results[0].geometry.location,
+                map: map,
+                title: "{!selectedEvent.theEvent.Name}"
+            });
+            
+            //add listeners
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map,marker);
+            });
+            google.maps.event.addListener(infowindow, 'closeclick', function() {
+              map.setCenter(marker.getPosition()); 
+            });
+            
+          }
+          
+        } else {
+          $('#map').css({'height' : '15px'});
+          $('#map').html("Oops! {!selectedEvent.theEvent.Name}'s address could not be found, please make sure the address is correct.");
+          resizeIframe();
+        }
+      });
+        
+      //map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+    });
+    
+    </script>
+     
+    <style>
+    #map {
+      font-family: Arial;
+      font-size:12px;
+      line-height:normal !important;
+      background:transparent;
+    }
+    </style>
+
+<!-- END of Google Maps functionality -->
+    
+         
+    <!-- <c:WEBMeta title="Dementia Friends" /> -->
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body class="">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    
+    <section class="page-content">
+            <div class="wrapper">
+            <div class="sessions">
+                <section class="secondary-navigation">
+                    <h3>Friends</h3>
+                        <ul class="navigation">
+                            <li>
+                                <a href="WEBArticle?page=what-is-a-friend">What is a Friend?</a>
+                            </li>
+                            <li>
+                                <a href="WEBArticle?page=friend-am-eligible">Am I eligible?</a>
+                            </li>
+                            <li>
+                                <a href="WEBArticle?page=friend-how-else-can-i-help">How else can I help?</a>
+                            </li>
+                            <li class="active">
+                                <a href="WEBSession">Find sessions</a>
+                            </li>
+                        </ul>                    
+                </section>
+                <section class="content">
+                   <div id="info-description">
+                        <h1>{!selectedEvent.theEvent.Name}</h1>
+                        Session held by <strong>{!selectedEvent.theEvent.Session_Organiser__r.Name}</strong>
+                        <br/><br/>
+                        <p class="session-location">
+                            {!selectedEvent.theEvent.Event_Description__c}
+                        </p>
+                    </div>
+                    <div id="info-pane">
+                        <div class="status ">
+                        <div></div>
+                        {!selectedEvent.theEvent.Event_Status__c}
+                        </div>
+                        <div class="info">
+                            <p>{!selectedEvent.eventMonth}
+                            <span>{!selectedEvent.eventDay}</span>
+                            </p>
+                        </div>
+                        <div class="info time">
+                            <p>
+                            <span>{!selectedEvent.eventHour}
+                                <span>{!selectedEvent.eventMin}</span>
+                            </span>
+                            Start</p>
+                            <p>
+                            <span>{!selectedEvent.eventEndHour}
+                                <span>{!selectedEvent.eventEndMin}</span>
+                            </span>
+                            End</p>
+                        </div>
+                        <div class="info">
+                            <p>Spaces Left
+                            <span>{!placesLeft}</span>
+                            </p>
+                        </div>
+                        <div class="info">
+                            <p>Wheelchair Accessible
+                            <span>{!selectedEvent.wheelchairAccess}</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div id="address">
+                        <h2>Address</h2>
+                        <address>
+                        <strong>{!selectedEvent.theEvent.Location__c}</strong><br/>
+                        {!selectedEvent.theEvent.Street__c}<br/>
+                        {!selectedEvent.theEvent.City__c}<br/>                        
+                        {!selectedEvent.theEvent.County__c}<br/>
+                        {!selectedEvent.theEvent.Postcode__c}<br/>
+                        </address>
+                    </div>
+                    
+                    <div class="booking-container">
+                    <apex:outputPanel rendered="{!!isLoggedIn}">
+                        <p>
+                        Please <a href="WEBLogin">sign in</a> or <a href="WEBRegisterFriend">register</a> before you book a session.
+                        </p>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!isLoggedIn && isFriend}">
+                    <apex:form >
+                        <p>
+                        <!-- <a href="/champion/training/register/id/3915" class="book-session btn btn-primary btn-large">Book your session</a> -->
+                        <apex:commandButton value="Book your session" styleClass="book-session btn btn-primary btn-large" action="{!bookOnSession}" rendered="{!!isAlreadyBooked && !hasOtherBooking && !eventClosed}"/>
+                        </p>
+                        <p>
+                        <apex:commandButton value="Unregister for session" styleClass="unbook-session btn btn-large" action="{!removeFromSession}" rendered="{!isAlreadyBooked && !hasOtherBooking}"/>
+                        </p>
+                        <apex:outputPanel rendered="{!hasOtherBooking}">
+                        <p>
+                        You must unregister from your previous session before you can register onto this session.<br/>
+                        <a href="/WEBFriend">My Sessions</a>
+                        </p>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!eventClosed}">
+                        <p>
+                        This session is no longer available for booking.  Please search for another session.
+                        </p>
+                        </apex:outputPanel>
+                    </apex:form>
+                    </apex:outputPanel>
+                    </div>
+                    <!-- <section id="session-details"></section> -->
+                    
+                    <div id="map" style="position:relative; width:509px; height:286px;"></div> 
+                    
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

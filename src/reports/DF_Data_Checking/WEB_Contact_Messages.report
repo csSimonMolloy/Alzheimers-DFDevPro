@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WEBContactMessage__c$Name</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$FirstName__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$LastName__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Email__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Date_Received__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Subject__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Message__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Contact_Phone__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Address_Street__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Address_City__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Address_County__c</field>
+    </columns>
+    <columns>
+        <field>WEBContactMessage__c$Address_PostCode__c</field>
+    </columns>
+    <description>Report all WEB contact messages</description>
+    <format>Tabular</format>
+    <name>WEB Contact Messages</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WEB_Contact_Messages__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WEBContactMessage__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

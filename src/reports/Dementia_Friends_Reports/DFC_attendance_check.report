@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>DF_Event__c$Event_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$RecordType_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Event_Status__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Number_Of_Champions_Attended__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Name</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Session_Organiser__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Postcode__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Event_Ext_Id__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Number_of_Attendees__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Number_of_Places__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Public_Event__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Comments__c</field>
+    </columns>
+    <description>Use this report to check the number of DFCs booked on an event at a glance</description>
+    <filter>
+        <criteriaItems>
+            <column>DF_Event__c$RecordType_Name__c</column>
+            <operator>notEqual</operator>
+            <value>dementia friend awareness session</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Event__c$Event_Date_Time__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>5/14/2014 12:00 AM</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>DFC attendance check</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>DF_events_only__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>DF_Event__c$Event_Date_Time__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DF_Event__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,34 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html">
+    
+    <!--  <c:WEBMeta title="Dementia Friends" /> -->
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <div id="page_content"></div>
+    <section class="page-content">
+        <div class="wrapper">
+            <section class="main-content">
+                <h1>Registration successful</h1>
+                <p>Please check your email to complete your registration. If you do not receive an email, please check your junk folder or spam filters, or <a href="/register/resendverification">resend verification email</a>.</p>  
+            </section>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

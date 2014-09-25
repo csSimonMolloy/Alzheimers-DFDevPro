@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>WEBError Record</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WEBError Records</value>
+    </caseValues>
+    <fields>
+        <label><!-- Authorization Errors --></label>
+        <name>Error_Count_Auth_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Generic Errors --></label>
+        <name>Error_Count_Generic_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limit Exceeded Errors --></label>
+        <name>Error_Count_Limit_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Errors --></label>
+        <name>Error_Count_Maintenance_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Page Not Found Errors --></label>
+        <name>Error_Count_Page_Not_Foun_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Errors --></label>
+        <name>Error_Count_RollUp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Count --></label>
+        <name>Error_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Date Time --></label>
+        <name>Error_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Error Datetime --></label>
+        <name>Last_Error_Datetime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session ID --></label>
+        <name>Session_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>WEBError Record Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

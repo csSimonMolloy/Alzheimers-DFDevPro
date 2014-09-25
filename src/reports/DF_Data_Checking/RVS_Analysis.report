@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>IF(DF_EventAttendee__c.DF_EntAtExt_Id__c:SUM &gt; 0, 1, 0)</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <masterLabel>Attendee Bookings</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>DF_Contact__c.DF_Events__r$Number_of_Attendees__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r$Name</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r$Event_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r.DF_EventAttendees__r$DF_Contact__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r.DF_EventAttendees__r$Name</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r.DF_EventAttendees__r$DF_Contact__c.Status__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>DF_Contact__c.DF_Events__r$Number_of_Places__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.DF_Events__r.DF_EventAttendees__r$DF_EntAtExt_Id__c</field>
+    </columns>
+    <description>Data Checking RVS partner relationships</description>
+    <filter>
+        <criteriaItems>
+            <column>DF_Contact__c$Partner_Organisation_ID__c</column>
+            <operator>equals</operator>
+            <value>RVS</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>DF_Contact__c.DF_Events__r$Session_Organiser__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>RVS Analysis</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_event_attendees__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Contact__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

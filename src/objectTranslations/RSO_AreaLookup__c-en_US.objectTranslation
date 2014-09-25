@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>RSO Area Lookup</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RSO Area Lookups</value>
+    </caseValues>
+    <fields>
+        <help><!-- Name of RSO --></help>
+        <label><!-- Regional Support Officer --></label>
+        <name>DFContactId__c</name>
+        <relationshipLabel><!-- RSO Area Lookups --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Enter a list of postcodes this RSO supports.  Enter the one or two letters of the postal area --></help>
+        <label><!-- Postcodes Supported --></label>
+        <name>Postcode_Supported__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training Location --></label>
+        <name>Training_Location__c</name>
+    </fields>
+    <layouts>
+        <layout>RSO Area Lookup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Postcodes Supported --></label>
+            <section>Postcodes Supported</section>
+        </sections>
+        <sections>
+            <label><!-- RSO --></label>
+            <section>RSO</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

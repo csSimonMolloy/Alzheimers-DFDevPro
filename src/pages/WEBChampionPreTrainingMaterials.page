@@ -1,0 +1,150 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampionSessionResources" action="{!loginRedirect}">
+    
+    <style>
+    .ui-widget-header {
+border:none !important;
+background:none !important;
+font-weight:none !important;
+}
+
+#champion-dashboard #tabs ul li {
+list-style: none;
+display: inline;
+padding:0px !important;
+border: solid 1px #fff;
+background: #285987;
+font-size: 12px !important;
+border-radius: 0px;
+}
+
+
+#champion-dashboard #tabs ul
+
+{
+ margin:0px !important; 
+ }
+ 
+ .ui-tabs .ui-tabs-nav {
+ margin: 0; 
+padding:0 !important; 
+}
+</style>
+
+    
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="champion-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <!-- <c:WEBChampionNavigationMenu activeValue="SESSIONRESOURCES" isChampion="{!isChampion}"/> -->
+                <ul class="navigation">
+                    <li class="">
+                        <a href="WEBChampion">Dashboard home</a>
+                    </li>
+                    <li class="">
+                        <a href="WEBChampionEditMyDetails">Edit my details</a>
+                    </li>
+                    <li class="">
+                        <a href="WEBChangePassword">Change my password</a>
+                    </li>
+                    <li class="">
+                        <a href="/WEBChampionConvertToFriend">Convert to a Dementia Friend</a>
+                    </li>
+                </ul>
+                <ul class="navigation">
+                    <li class="">
+                        <a href="WEBChampionCreateEditSession" class="disabled">Create a session</a>
+                    </li>
+                    <li class="">
+                        <a href="WEBChampionManageMySessions" class="disabled">Manage my sessions</a>
+                    </li>
+                    <li class="">
+                        <a href="WEBChampionSessionFeedback" class="disabled">Tell us about a session</a>
+                    </li>
+                </ul>                    
+                <ul class="navigation">
+                    <li class="active">
+                        <a id="menu-sessionResources" class="" href="WEBChampionPreTrainingMaterials">Session resources</a>
+                    </li>
+                    <li>
+                        <a class="disabled" href="WEBChampionActionList">Friends' actions</a>
+                    </li>
+                </ul> 
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+
+            <section class="main-content">
+                <div id="message-center"></div> 
+                <div class="intro">
+                    <h1>Pre-training materials</h1>
+                    <div class="snippet snippet-rich_text rte">
+                        <p>We want everyone to come to Dementia Friends Champions' training with a similar basic understanding of dementia. Although, many of you may already know about dementia through your own experience or other training this online module will mean that we know everyone is starting from the same point.</p>
+                        <p>Please complete this module of the SCIE's (Social Care Institute for Excellence) <a href="http://www.scie.org.uk/publications/elearning/dementia/index.asp">Open Dementia Programme</a>, written with Alzheimer's Society, before you come to the training and we will explore the implications for people living with dementia during the session.</p>    
+                    </div>
+                </div>
+
+                <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+                    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">        
+                        <apex:repeat value="{!sessionCategories}" var="session" >
+                            <li class="ui-state-default ui-corner-top {!IF(session.rowNum == 0,'ui-tabs-active ui-state-active','')}" role="tab" tabindex="{!session.rowNum}" aria-controls="tabs-{!session.rowNum+1}" aria-labelledby="ui-id-{!session.rowNum+1}" aria-selected="{!IF(session.rowNum == 0, 'true', 'false')}">
+                                <a href="#tabs-{!session.rowNum+1}" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-{!session.rowNum+1}">{!session.Name}</a>
+                            </li>
+                        </apex:repeat>
+                    </ul>
+                    <apex:repeat value="{!sessionCategories}" var="session" >                
+                        <div class="tab-container ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-{!session.rowNum+1}" aria-labelledby="ui-id-{!session.rowNum+1}" role="tabpanel" aria-expanded="{!IF(session.rowNum == 0, 'true', 'false')}" aria-hidden="{!IF(session.rowNum == 0, 'false', 'true')}" style="display: {!IF(session.rowNum == 0, 'block', 'none')};">
+                            <p><apex:outputText value="{!session.description}" escape="false" /></p>
+
+
+                            <table class="resource-table table-spacing clickable-row-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col2">Details</th>
+                                        <th class="col3">File Size</th>
+                                        <th class="col4"><span>Download</span></th>
+                                    </tr>
+                                </thead>                           
+                                <apex:repeat value="{!sessionResources[session.rowNum]}" var="resource" >                               
+                                    <tbody>
+                                        <tr>
+                                            <td class="col2">
+                                                <p><strong>{!resource.Name__c}</strong></p>
+                                            </td>
+                                            <td class="col3"><span>{!CEILING(att[resource.Id].BodyLength/1024)}</span>KB</td>
+                                            <td class="col4"><a onclick="_gaq.push(['_trackEvent', 'champion-resource-Post', 'Download', '{!session.Name}']);" href="{!URLFOR($Action.Attachment.Download, att[resource.Id].id)}" class="btn btn-primary">Download<span>{!resource.Name__c}</span></a></td>
+                                        </tr>
+                                    </tbody>     
+                                </apex:repeat>                       
+                           </table>
+                        </div>
+                    </apex:repeat>        
+       
+                </div>
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

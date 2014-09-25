@@ -1,0 +1,149 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBContactForm" >
+    
+    <c:WEBMetaNoCSS />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <script>
+    $(document).ready(function(){
+        $( ".aerian-form" ).submit(function() {
+            var px_subject = $('#subject option:selected').text();
+            _gaq.push(['_trackPageview', '/contact/success/'+ px_subject]); 
+        });
+    });
+    
+    </script>
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="CONTACT" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <div id="page_content"></div>
+
+    <section class="page-content">
+        <section class="info-page">
+            <div class="wrapper">
+                <section class="main-content">
+                    <h1>Contact</h1>
+                    <div class="snippet snippet-rich_text rte">
+                    <p>
+                    <apex:outputText value="{!contactFormText.Body_Text__c}" escape="false"/>
+                    </p>
+                    </div>
+                    <!-- FORM GOES IN HERE -->
+                    <apex:form styleClass="aerian-form admin-form form-horizontal">
+                    <fieldset>
+                     <apex:outputPanel rendered="{!LEN(standardErrorMsg)>0}">
+                       <p><apex:outputText value="{!standardErrorMsg}" styleClass="form-inerror-message alert"/></p>
+                    </apex:outputPanel>
+                    <div class="control-group element-firstName element-type-text required {!firstNameErrorClass}">
+                        <apex:outputLabel for="firstName" value="First Name" styleClass="control-label required"/>
+                    <div class="controls">
+                        <apex:inputText value="{!firstName}" id="firstName" styleClass=" input-text input"/>
+                        <apex:outputText value="{!firstNameError}" rendered="{!LEN(firstNameError)>0}" styleClass="text-error"/>
+                    </div>
+                    </div>
+                    <div class="control-group element-lastName element-type-text required {!lastNameErrorClass}">
+                        <apex:outputLabel for="lastName" value="Last Name" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!lastName}" id="lastName" styleClass=" input-text input"/>
+                            <apex:outputText value="{!lastNameError}" rendered="{!LEN(lastNameError)>0}" styleClass="text-error"/>                        
+                        </div>
+                    </div>
+                    <div class="control-group element-email element-type-text required {!emailErrorClass}">
+                        <apex:outputLabel for="email" value="Email" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!email}" id="email" styleClass=" input-text input"/>
+                            <apex:outputText value="{!emailError}" rendered="{!LEN(emailError)>0}" styleClass="text-error"/>                        
+                        </div>
+                    </div>
+                    <!-- Address fields -->
+                    <div class="control-group element-addressStreet element-type-text optional">
+                        <apex:outputLabel for="addressStreet" value="Address Street" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!addressStreet}" id="addressStreet" styleClass=" input-text input"/></div>
+                    </div>
+                    <div class="control-group element-addressCity element-type-text optional">
+                        <apex:outputLabel for="addressCity" value="Address City" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!addressCity}" id="addressCity" styleClass=" input-text input"/></div>
+                    </div>
+                    <div class="control-group element-addressCounty element-type-text optional">
+                        <apex:outputLabel for="addressCounty" value="Address County" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!addressCounty}" id="addressCounty" styleClass=" input-text input"/></div>
+                    </div>
+                    <div class="control-group element-addressPostcode element-type-text optional">
+                        <apex:outputLabel for="addressPostcode" value="Address Post Code" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!addressPostcode}" id="addressPostcode" styleClass=" input-text input"/></div>
+                    </div>
+                    <!-- End of Address fields -->
+                    <div class="control-group element-contactPhone element-type-text optional">
+                        <apex:outputLabel for="contactPhone" value="Contact Phone" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!phone}" id="contactPhone" styleClass=" input-text input"/></div>
+                    </div>
+                    <div class="control-group element-subject element-type-select required {!webSubjectErrorClass}">
+                        <apex:outputLabel for="subject" value="Subject" styleClass="control-label required"/>
+                        <div class="controls">
+                        <apex:selectList value="{!webSubject}" styleClass="chzn-select input-select input" size="1">
+                            <apex:selectOptions value="{!subjectList}"/>
+                        </apex:selectList>
+                        <p><apex:outputText value="{!webSubjectError}" rendered="{!LEN(webSubjectError)>0}" styleClass="text-error"/></p>
+                        </div>
+                    </div>
+                    <div class="control-group element-message element-type-textarea optional">
+                        <apex:outputLabel for="message" value="Message" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputTextArea cols="50" rows="5" value="{!webMessage}" id="message" styleClass="comment-box input-textarea input"/></div>
+                    </div>
+                     <!-- reCAPTCHA CODE -->
+                    <script type="text/javascript">
+                        var RecaptchaOptions = {"theme":"clean","lang":"en"};
+                    </script>
+                    <div class="control-group element-recaptcha_response_field element-type-app_form_element_captcha required {!reCAPTCHAErrorClass}">
+                        <label for="recaptcha_response_field" class="control-label required">
+                        Type the characters you see in the picture
+                        </label>
+                        <div class="controls">
+                        <!-- reCAPTCHA verification 
+                             Source: https://developers.google.com/recaptcha/docs/display -->
+                        <script type="text/javascript"
+                            src="https://www.google.com/recaptcha/api/challenge?k={!publicKey}">
+                        </script>
+                        <noscript>
+                            <iframe src="https://www.google.com/recaptcha/api/noscript?k={!publicKey}"
+                            height="300" width="500" frameborder="0"></iframe><br/>
+                            <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                            <!-- <apex:inputText value="{!response}"/> -->
+                            <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+                        </noscript>
+                        <!-- end reCAPTCHA verification -->
+                        <!-- <apex:commandButton action="{!verify}" value="Check If I'm Human" rendered="{! NOT(verified)}"/> -->
+                        <apex:outputText value="{!reCAPTCHAError}" rendered="{!LEN(reCAPTCHAError)>0}" styleClass="text-error"/>
+                        </div>
+                    </div>
+                    <!-- END OF reCAPTCHA CODE -->
+                        <fieldset id="fieldset-actions">
+                            <div class="button-set">
+                                <apex:commandButton styleClass="btn btn-primary" value="Submit" action="{!submitContactForm}"/>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                    
+                    
+                    </apex:form>
+                    <!-- FORM ENDS HERE -->
+                </section>
+            </div>
+        </section>
+    </section>
+    
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

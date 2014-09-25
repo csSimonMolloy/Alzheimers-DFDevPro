@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Session_Code_Verified__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.RecordType_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Partner_Organisation_ID__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>DF_Contact__c.RecordType_Name__c</column>
+            <operator>equals</operator>
+            <value>dementia friend champion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Partner_Organisation_ID__c</column>
+            <operator>notEqual</operator>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>WR - 6. DFCs entered code</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$DF_Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Contact__c.Date_of_Champion_Training__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

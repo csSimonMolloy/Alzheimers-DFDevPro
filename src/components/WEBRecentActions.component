@@ -1,0 +1,20 @@
+<apex:component controller="WEBRecentActions">
+                        <!-- WEBRECENTACTIONS COMPONENT START -->
+                        <section id="news" class="social">
+                            <header class="header">
+                                <h2>Latest Actions</h2>
+                            </header>
+                            <div class="ticker">
+                                <ul class="latest-actions bxslider">
+                                    <apex:repeat value="{!actions}" var="action">                                   
+                                        <li><apex:outputText value="{!action.Action__c}" escape="false" /><strong>by {!action.DF_Contact__r.Name}</strong></li>
+                                    </apex:repeat> 
+                                </ul>                      
+                            </div>
+                            <div class="clear-both"></div>
+
+                            <h3>Stay up to date with Dementia Friends</h3>
+                            <a href="WEBNewsLetterSignup" class="btn btn-primary">Subscribe to our newsletter</a>
+                        </section>
+                        <!-- WEBRECENTACTIONS COMPONENT END -->
+</apex:component>

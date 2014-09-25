@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Body_Text__c</fullName>
+        <label>Body Text</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Promote_On_Homepage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <inlineHelpText>Ticking this box means this news item can appear on the homepage, if it is one of the latest five homepage news articles</inlineHelpText>
+        <label>Promote On Homepage</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Publish_Date__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <inlineHelpText>Only news stories with a published date in the past will be visible on the site. Choose today&apos;s date to publish immediately.</inlineHelpText>
+        <label>Publish Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Description__c</fullName>
+        <label>SEO Description</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Keywords__c</fullName>
+        <label>SEO Keywords</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <label>Title</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Unique_Text__c</fullName>
+        <inlineHelpText>A unique text reference used to identify this article. This will be used in the news URL.</inlineHelpText>
+        <label>Unique Text</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>News</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>Publish_Date__c</columns>
+        <columns>Promote_On_Homepage__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>N-{0000}</displayFormat>
+        <label>News Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>News</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

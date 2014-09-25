@@ -1,0 +1,40 @@
+<messaging:emailTemplate subject="Dementia Friends Session Cancelled" recipientType="Contact" relatedToType="DF_EventAttendee__c">
+<messaging:htmlEmailBody >
+<!-- <img src="{!URLFOR($Resource.img, 'img/f/logo.png')}" height="103" width="259" alt="Dementia Friends" /> -->
+<apex:image id="Logo" value="https://c.eu0.content.force.com/servlet/servlet.ImageServer?id=01520000001HfE1&oid=00D20000000CwQc" height="103" width="259"/>
+<br/>
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+<br/><br/>
+We're sorry for any inconvenience this may cause, but your Dementia Friends  session scheduled for {!relatedTo.DF_Event__r.Event_Date_Time__c} with {!relatedTo.DF_Event__r.Session_Organiser__r.Name} has had to be cancelled.
+<br/><br/>
+This will be due to reasons beyond our control such as problems with the venue, cancellations or facilitator illness.
+<br/><br/>
+Please feel free to re-book onto an alternative session at <a href="www.dementiafriends.org.uk">www.dementiafriends.org.uk</a>
+<br/><br/>
+Best wishes,
+<br/><br/>
+Dementia Friends
+<br/><br/>
+<a href="http://www.dementiafriends.org.uk">http://www.dementiafriends.org.uk</a>
+<br/><br/>
+Dementia Friends is an initiative of Alzheimer's Society
+</messaging:htmlEmailBody>
+
+<messaging:plainTextEmailBody >
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+
+We're sorry for any inconvenience this may cause, but your Dementia Friends  session scheduled for {!relatedTo.DF_Event__r.Event_Date_Time__c} with {!relatedTo.DF_Event__r.Session_Organiser__r.Name} has had to be cancelled.
+
+This will be due to reasons beyond our control such as problems with the venue, cancellations or facilitator illness.
+
+Please feel free to re-book onto an alternative session at http://www.dementiafriends.org.uk
+
+Best wishes,
+
+Dementia Friends
+
+http://www.dementiafriends.org.uk
+
+Dementia Friends is an initiative of Alzheimer's Society
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

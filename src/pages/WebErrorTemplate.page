@@ -1,0 +1,38 @@
+<apex:page controller="WEBErrorController" showHeader="false" sidebar="false" standardStylesheets="false" docType="html">
+    
+    <c:WEBMetaNoCSS />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content">
+        <section class="info-page">
+            <div class="wrapper">
+                <section class="main-content">
+                    <!-- <h1>Page not found</h1> -->
+                    <div class="snippet snippet-rich_text rte">
+                    <p>We’re sorry the page you are looking for cannot be found.</p>
+                    <p>Please click the back button to continue, fill out our <a href="/WEBContactForm">contact form</a> or call 0845 306 0898 for assistance.</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </section>
+    
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+    </body>
+    
+    <site:previewAsAdmin />
+
+</apex:page>

@@ -1,0 +1,105 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBLogin">
+    
+    <script>
+        function doFacebook(){
+            var fbString = 'https://test.salesforce.com/services/auth/sso/00D110000006VMwEAM/dflogin?site=https%3A%2F%2Fdfdevpro-dementiafriends.cs18.force.com%2F';
+            //alert('doing Facebook');
+            window.location = fbString;
+        }
+    </script>
+    
+    <c:WEBMetaNoCSS title="Login" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content">
+        <div class="wrapper">
+
+            <section class="main-content">
+                    
+                <h1>Sign in</h1>
+                <div class="controls">
+                    <p class="help-block"><i><apex:outputText value="Please enter your email address and password.<br/>
+                    
+                    If you are accessing your account for the first time an email has been sent to the email address you used to register with a temporary password. Please use this temporary password to log in for the first time and you will then be prompted to change your password." escape="false"/></i></p>
+                 
+                 
+                  
+                  <br>
+                    <p> <i>"If you have watched our video then you need to register a Dementia Friend or Dementia Friends Champion account before you can sign in."</i> </p> </br>
+                
+                </div>    
+                <apex:form styleClass="aerian-form admin-form form-horizontal" forceSSL="true">
+                    <fieldset accept-charset="utf-8">
+                        <apex:outputPanel rendered="{!LEN(standardErrorMsg)>0}">
+                            <p>Your email and/or password has not been recognised. Please ensure you have entered them correctly.</p>
+                            <p>If you previously registered via Facebook, but cannot login with facebook, you can <a href="/WEBForgotPassword">set a password here.</a></p>            
+                            <p>Otherwise <a href="/WEBRegister">register here</a>.</p>
+                            <!-- <p><apex:outputText value="{!standardErrorMsg}" styleClass="form-inerror-message alert"/></p> -->
+                        </apex:outputPanel>
+                        <div class="control-group element-email element-type-text required {!IF(LEN(emailAddressError)>0,'error','')}">
+                            <label for="email" class="control-label required">Email</label>
+                            <div class="controls">
+                                <apex:inputText id="email" value="{!emailAddress}" styleClass=" input-text input" />
+                                <apex:outputText value="{!emailAddressError}" rendered="{!LEN(emailAddressError)>0}" styleClass="text-error"/>
+                            </div>
+                        </div>
+                        <div class="control-group element-password element-type-password required {!IF(LEN(passwordError)>0,'error','')}">
+                            <label for="password" class="control-label required">Password</label>
+                            <div class="controls">
+                                <apex:inputSecret id="password" value="{!password}" styleClass=" input-password input" />
+                                <apex:outputText value="{!passwordError}" rendered="{!LEN(passwordError)>0}" styleClass="text-error"/>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <p class="help-block"><strong><apex:outputText value="NOTE: We have recently updated our security settings.  If you have already created a Dementia Friends Champion or Dementia Friend account can you please click ‘Forgotten Password’ and a Temporary Password will be sent to you. Please then follow the above instructions." escape="false"/></strong></p>
+                        </div>
+                        <fieldset id="fieldset-actions" class="form-actions">
+                            <div class="controls">
+                                <apex:commandButton action="{!login}" id="Submit" value="Submit" styleClass=" btn btn-primary input-submit btn" />
+                            </div>
+                            <div class="control-group element-forgetPassword element-type-html optional">
+                                <div class="controls">
+                                    <a href="/WEBForgotPassword" class="pwd arrow">Forgotten Password?</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                </apex:form>        
+            </section>
+            <!-- 2014-05-14 : CSL : Removing the Facebook login link until user journey decided as per defect DF_Live41 -->
+            <!-- 
+            <section class="secondary-content">
+                <section class="facebook-login">
+                    <header class="header">
+                        <h2>Facebook login</h2>
+                    </header>
+                    <p>Login with facebook for quick and easy access to the Dementia Friends network</p>
+                    <a href="#" id="fbc-login-button" class="facebook-button" onclick="javascript:doFacebook();">Facebook</a>
+                    <p>Having trouble logging in with Facebook? <a href="register/setpassword.html">Click here</a> to set a password for your Dementia Friends account.</p>
+                </section>        
+            </section>
+            -->
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

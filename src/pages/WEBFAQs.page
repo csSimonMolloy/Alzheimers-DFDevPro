@@ -1,0 +1,78 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBFAQs">
+    
+    <c:WEBMetaNoCSS />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="FAQ" />
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    
+    <div id="page_content"></div>
+    <section class="page-content">
+        <div class="wrapper">
+            <section class="faqs">
+                <section class="main-content">
+                    <h1><abbr title="Frequently Asked Questions">FAQs</abbr></h1>
+
+                    <ul class="faq-table">
+                        <apex:repeat value="{!faqCategories}" var="category">
+                            <li class="faq-cat">
+                                <a href="#{!category.Name}">{!category.Name__c}</a>
+                                <ul>
+                                    <apex:repeat value="{!mapFaqs[category.Id]}" var="faq">
+                                        <li><a href="#{!faq.Name}">{!faq.Question__c}</a></li>
+                                    </apex:repeat>
+                                </ul>
+                            </li>
+                        </apex:repeat>
+                        <apex:repeat value="{!faqCategories}" var="category">                       
+                            <h2 id="{!category.Name}">{!category.Name__c}</h2>
+                            <dl>
+                                <apex:repeat value="{!mapFaqs[category.Id]}" var="faq">
+                                    <dt id="{!faq.Name}">
+                                    <span>{!faq.Question__c}</span>
+                                    <a href="#page_content" class="to-top">Back to top</a>
+                                    </dt>
+                                    <dd><p><apex:outputText value="{!faq.Answer__c}" escape="false"/></p></dd>
+                                </apex:repeat>
+                            </dl> 
+                        </apex:repeat>                          
+                    </ul>
+                </section>
+                <section class="secondary-content">
+                    <section class="awareness-session">
+                        <header class="header">
+                            <h2>Friends' information sessions</h2>
+                        </header>
+                        <div class="snippet snippet-rich_text rte">
+                        <p>Friends' information sessions are run by Dementia Friends Champions to help you understand what it's like to live with dementia and the actions you can take. Search for your nearest information session.</p>    
+                        </div>    
+                        <a class="btn btn-primary" href="WEBSession">Find a Session</a>
+                    </section>                
+                    <section class="dfc-training">
+                        <header class="header">
+                            <h2>Champions' training</h2>
+                        </header>
+                        <div class="snippet snippet-rich_text rte">
+                        <p>Our training prepares Dementia Friends Champions to help people understand what it's like to live with dementia and the actions they can take in their communities. Search for your nearest training.</p>    
+                        </div>    
+                        <a class="btn btn-primary" href="WEBTraining">Find Training</a>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

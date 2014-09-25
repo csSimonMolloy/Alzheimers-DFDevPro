@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>Page Snippet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Page Snippets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Body Text --></label>
+        <name>Body_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- CSS class to use when rendering this snippet --></help>
+        <label><!-- CSS Class --></label>
+        <name>CSS_Class__c</name>
+    </fields>
+    <fields>
+        <help><!-- The URL of the blue link at the bottom of the snippet --></help>
+        <label><!-- Link Title --></label>
+        <name>Link_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- The URL of the blue link at the bottom of the snippet --></help>
+        <label><!-- Link URL --></label>
+        <name>Link_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Name --></label>
+        <name>Unique_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Page Snippet Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,64 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampion" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="champion-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu activeValue="CONVERT" isChampion="{!isChampion}"/>               
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+
+            <section class="main-content">
+                <div id="message-center"></div>                    
+                <h1>Convert to a Dementia Friend</h1>
+
+                <h2>Are you sure you want to change?</h2>
+
+                <section class="whats-involved">
+                    <header class="header">
+                        <h3>What's involved in being a Friend?</h3>
+                    </header>
+                    <div>
+                        <div class="snippet snippet-rich_text rte">
+                            <ul>
+                                <li>Live in England or Wales</li>
+                                <li>Be of any age</li>
+                                <li>Attend a Dementia Friends' information session close to where you live, lasting about one hour</li>
+                                <li>Do something practical to help people living with dementia in your community</li>
+                                <li>Post your Dementia Friends action on the Dementia Friends website</li>
+                            </ul> 
+                        </div>        
+                        <apex:form >
+                            <apex:commandButton id="submit-button" value="Convert to Dementia Friend" styleClass="btn btn-primary" action="{!convertBackToFriend}" />
+                            <a class="arrow" href="/WEBArticle?page=what-is-a-friend">What is a Friend?</a>
+                        </apex:form>        
+                        
+                    </div>
+                </section>                
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>WEBError Record Detail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WEBError Record Details</value>
+    </caseValues>
+    <fields>
+        <label><!-- Error Condition --></label>
+        <name>Error_Condition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Referrer --></label>
+        <name>Referrer__c</name>
+    </fields>
+    <fields>
+        <label><!-- WEBError Record --></label>
+        <name>WEBError_Record__c</name>
+        <relationshipLabel><!-- WEBError Record Details --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>WEBError Record Detail Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

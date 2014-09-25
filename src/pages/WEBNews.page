@@ -1,0 +1,90 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBNews">
+    
+    <c:WEBMetaNoCSS />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="NEWS" />
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    
+    <div id="page_content"></div>
+
+    <section class="page-content">
+        <section class="info-page">
+            <div class="wrapper">
+                <section class="main-content">
+                    <h1>News &amp; press</h1>
+                    <ul>
+                        <apex:repeat value="{!newsStories}" var="story">
+                            <li>
+                                <span class="details">
+                                    <span class="title">
+                                        <a href="WEBNewsStory?storyId={!story.Id}">{!story.Title__c}</a>
+                                    </span>
+                                    <span class="date">
+                                        <apex:outputText value="{0,date,dd MMM yyyy}">
+                                            <apex:param value="{!story.Publish_Date__c}" /> 
+                                        </apex:outputText>
+                                    </span>
+                                    <p>
+                                        <apex:outputText value="{!LEFT(story.Body_Text__c,200) & '... '}" escape="false" />
+                                        <a href="WEBNewsStory?storyId={!story.Id}" class="read-more">Read more</a>
+                                    </p>
+                                </span>
+                            </li>
+                        </apex:repeat>                  
+                    </ul>            
+                </section>
+                <section class="secondary-content">                 
+                    <section class="already-registered">
+                        <header class="header">
+                            <h2>Media Enquiries</h2>
+                        </header>
+                        <p>To contact the media team please <a href="WEBContactForm">email</a>, If you are a journalist with an inquiry please call Alzheimer's Society press team on 020 7423 3595 or 07802 688 774 (out of hours).</p>
+                    </section>                
+                    <section class="awareness-session">
+                        <header class="header">
+                            <h2>Friends' information sessions</h2>
+                        </header>
+                        <div class="snippet snippet-rich_text rte">
+                            <p>Friends' information sessions are run by Dementia Friends Champions to help you understand what it's like to live with dementia and the actions you can take. Search for your nearest information session.</p>    
+                        </div>    
+                        <a class="btn btn-primary" href="WEBSession">Find a Session</a>
+                    </section>                
+                    <section class="dfc-training">
+                        <header class="header">
+                            <h2>Champions' training</h2>
+                        </header>
+                        <div class="snippet snippet-rich_text rte">
+                            <p>Our training prepares Dementia Friends Champions to help people understand what it's like to live with dementia and the actions they can take in their communities. Search for your nearest training.</p>    
+                        </div>    
+                        <a class="btn btn-primary" href="WEBTraining">Find Training</a>
+                    </section>
+                    <section class="already-registered">
+                        <header class="header">
+                            <h2>Already Registered</h2>
+                        </header>
+                        <div class="snippet snippet-rich_text rte">
+                            <p>Friends' information sessions are run by Dementia Friends Champions to help you understand what it is like to live with dementia the actions you can take. Search for your nearest information session.</p>    
+                        </div>        
+                        <a class="btn btn-primary" href="WEBLogin">Sign in here</a>
+                        <span class="bg"></span>
+                    </section>
+                </section>
+            </div>
+        </section>
+    </section> 
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

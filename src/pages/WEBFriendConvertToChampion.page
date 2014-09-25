@@ -1,0 +1,70 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBFriend" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="friend-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBFriendNavigationMenu activeValue="CONVERT" />               
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+
+            <section class="main-content">
+                <div id="message-center"></div>                    
+                <h1>Convert to a Dementia Friends Champion</h1>
+
+                <h2>Are you sure you want to change?</h2>
+
+                <section class="whats-involved">
+                    <header class="header">
+                        <h3>What's involved in being a Champion?</h3>
+                    </header>
+                    <div>
+                        <div class="snippet snippet-rich_text rte">
+                            <ul>
+                                <li>Genuinely have the time to run Dementia Friends information sessions and reach around 100 people</li>
+                                <li>Be over 18 years old</li>
+                                <li>Be a good communicator and speak objectively about dementia</li>
+                                <li>Enjoy talking to groups of people</li>
+                                <li>Have access to the internet and be willing to record the number of Friends you reach by the website</li>
+                                <li>Keen to set up information sessions in workplaces and your local community</li>
+                                <li>Enthusiastic about Dementia Friends</li>
+                                <li>Voluntarily attend a whole day training session </li>
+                            </ul>    
+                        </div>        
+                    <!-- <form enctype="multipart/form-data" method="post" accept-charset="utf-8" action="/WEBChampion">
+                        <input type="submit" name="submitbutton" id="submit-button" value="Convert to Dementia Friends Champion" class="btn btn-primary" />
+                    </form> -->
+                    <apex:form >
+                        <apex:commandButton action="{!convertToChampion}" styleClass="btn btn-primary" value="Convert to Dementia Friends Champion" id="submit-button"/>        
+                        <a class="arrow" href="/WEBArticle?page=what-is-a-champion">What is a Champion?</a>
+                    </apex:form>
+                    
+                    </div>
+                </section>                
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

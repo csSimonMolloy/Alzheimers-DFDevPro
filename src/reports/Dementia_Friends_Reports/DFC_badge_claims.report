@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Badge_Claim__c$DF_Contact__c.RecordType</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$Name</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$DF_Contact__c.Type_of_Champion__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$DF_Contact__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$Street__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$Town_City__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$County__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$Postcode__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$DF_Contact__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Badge_Claim__c$DF_Contact__c.Email__c</field>
+    </columns>
+    <description>Lists DFC badge orders from the website. Edit the dates in the report to get the latest orders.</description>
+    <filter>
+        <criteriaItems>
+            <column>Badge_Claim__c$CreatedDate</column>
+            <operator>greaterOrEqual</operator>
+            <value>6/27/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Badge_Claim__c$CreatedDate</column>
+            <operator>lessOrEqual</operator>
+            <value>6/30/2014 12:00 AM</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>DFC badge claims</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>BadgeClaims__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Badge_Claim__c$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Badge_Claim__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

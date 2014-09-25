@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Error_Count_Auth_RollUp__c</fullName>
+        <label>Authorization Errors</label>
+        <summaryFilterItems>
+            <field>WEBError_Record_Detail__c.Error_Condition__c</field>
+            <operation>contains</operation>
+            <value>Authorization Required</value>
+        </summaryFilterItems>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count_Generic_RollUp__c</fullName>
+        <label>Generic Errors</label>
+        <summaryFilterItems>
+            <field>WEBError_Record_Detail__c.Error_Condition__c</field>
+            <operation>contains</operation>
+            <value>Generic Error</value>
+        </summaryFilterItems>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count_Limit_RollUp__c</fullName>
+        <label>Limit Exceeded Errors</label>
+        <summaryFilterItems>
+            <field>WEBError_Record_Detail__c.Error_Condition__c</field>
+            <operation>contains</operation>
+            <value>Limit Exceeded</value>
+        </summaryFilterItems>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count_Maintenance_RollUp__c</fullName>
+        <label>Maintenance Errors</label>
+        <summaryFilterItems>
+            <field>WEBError_Record_Detail__c.Error_Condition__c</field>
+            <operation>contains</operation>
+            <value>Maintenance</value>
+        </summaryFilterItems>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count_Page_Not_Foun_RollUp__c</fullName>
+        <label>Page Not Found Errors</label>
+        <summaryFilterItems>
+            <field>WEBError_Record_Detail__c.Error_Condition__c</field>
+            <operation>contains</operation>
+            <value>Page Not Found</value>
+        </summaryFilterItems>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count_RollUp__c</fullName>
+        <label>Total Errors</label>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Error_Count__c</fullName>
+        <label>Error Count</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Error_Date_Time__c</fullName>
+        <label>Error Date Time</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Last_Error_Datetime__c</fullName>
+        <label>Last Error Datetime</label>
+        <summarizedField>WEBError_Record_Detail__c.CreatedDate</summarizedField>
+        <summaryForeignKey>WEBError_Record_Detail__c.WEBError_Record__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Session_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>Session ID</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>WEBError Record</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Error_Datetime__c</columns>
+        <columns>Error_Count_Auth_RollUp__c</columns>
+        <columns>Error_Count_Generic_RollUp__c</columns>
+        <columns>Error_Count_Limit_RollUp__c</columns>
+        <columns>Error_Count_Maintenance_RollUp__c</columns>
+        <columns>Error_Count_Page_Not_Foun_RollUp__c</columns>
+        <columns>Error_Count_RollUp__c</columns>
+        <columns>Session_ID__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>WE-{DD}{MM}{YYYY}-{0000}</displayFormat>
+        <label>WEBError Record Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>WEBError Records</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Last_Error_Datetime__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_Auth_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_Generic_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_Limit_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_Maintenance_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_Page_Not_Foun_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Count_RollUp__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

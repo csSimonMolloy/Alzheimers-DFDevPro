@@ -1,0 +1,148 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBBadgeOrder" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body id="champion-dashboard" class="dashboard ">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu isChampion="{!isChampion}" isConverted="{!isConverted}"/>
+                <a class="btn btn-primary {!IF(isChampion,'badge-action','disabled')}" href="/WEBBadgeOrder">Order 50 badges / infocards</a>
+                <!-- NOTE : The line below will come from a snippet when its built -->
+                <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span>
+                    
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                    <apex:outputPanel rendered="{!IF(ISBLANK(messageArea),FALSE,TRUE)}" >
+                        <div class="alert {!messageAreaClass}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {!messageArea}        
+                        </div>
+                    </apex:outputPanel>                 
+                </div> 
+
+            <div class="intro">
+            <h1>Order 50 badges and infocards</h1>
+                <div class="snippet snippet-rich_text rte">
+                <p>Please enter your address to place your order for 50 badges and infocards.</p>
+                </div>
+            </div>
+            <!-- Name & Address Information -->
+            <!-- FORM GOES IN HERE -->
+                    <apex:form styleClass="aerian-form admin-form form-horizontal">
+                    <fieldset>
+                     <apex:outputPanel rendered="{!LEN(standardErrorMsg)>0}">
+                       <p><apex:outputText value="{!standardErrorMsg}" styleClass="form-inerror-message alert"/></p>
+                    </apex:outputPanel>
+                    <div class="control-group element-firstName element-type-text required {!firstNameErrorClass}">
+                        <apex:outputLabel for="firstName" value="First name" styleClass="control-label required"/>
+                    <div class="controls">
+                        <apex:inputText value="{!firstName}" id="firstName" styleClass=" input-text input"/>
+                        <apex:outputText value="{!firstNameError}" rendered="{!LEN(firstNameError)>0}" styleClass="text-error"/>
+                    </div>
+                    </div>
+                    <div class="control-group element-lastName element-type-text required {!lastNameErrorClass}">
+                        <apex:outputLabel for="lastName" value="Last name" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!lastName}" id="lastName" styleClass=" input-text input"/>
+                            <apex:outputText value="{!lastNameError}" rendered="{!LEN(lastNameError)>0}" styleClass="text-error"/>                        
+                        </div>
+                    </div>
+                    <!-- Address fields -->
+                    <div class="control-group element-address1 element-type-text required">
+                        <apex:outputLabel for="address1" value="Address 1" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!addressStreet}" id="address1" styleClass=" input-text input"/>
+                            <apex:outputText value="{!addressStreetError}" rendered="{!LEN(addressStreetError)>0}" styleClass="text-error"/>
+                        </div>
+                    </div>
+                     <div class="control-group element-address2 element-type-text optional">
+                        <apex:outputLabel for="address2" value="Address 2" styleClass="control-label optional"/>
+                        <div class="controls"><apex:inputText value="{!addressStreet2}" id="address2" styleClass=" input-text input"/></div>
+                    </div>
+                    <div class="control-group element-addressCity element-type-text required">
+                        <apex:outputLabel for="addressCity" value="Town / City" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!addressCity}" id="addressCity" styleClass=" input-text input"/>
+                            <apex:outputText value="{!addressCityError}" rendered="{!LEN(addressCityError)>0}" styleClass="text-error"/>
+                        </div>
+                    </div>
+                    <div class="control-group element-addressCounty element-type-text required">
+                        <apex:outputLabel for="addressCounty" value="County" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!addressCounty}" id="addressCounty" styleClass=" input-text input"/>
+                            <apex:outputText value="{!addressCountyError}" rendered="{!LEN(addressCountyError)>0}" styleClass="text-error"/>
+                        </div>
+                    </div>
+                    <div class="control-group element-addressPostcode element-type-text required">
+                        <apex:outputLabel for="addressPostcode" value="Postcode" styleClass="control-label required"/>
+                        <div class="controls">
+                            <apex:inputText value="{!addressPostcode}" id="addressPostcode" styleClass=" input-text input"/>
+                            <apex:outputText value="{!addressPostcodeError}" rendered="{!LEN(addressPostcodeError)>0}" styleClass="text-error"/>
+                        </div>
+                    </div>
+                    <div class="button-set">
+                        <apex:commandButton value="Submit" styleClass="btn btn-primary" action="{!submitBadgeClaim}"/>
+                    </div>
+                    <br/>
+                    <div class="row-fluid">
+                    <div class="dash-mod-header">
+                        <h3>Previous Orders</h3>
+                    </div>
+                    <apex:outputPanel rendered="{!badgeClaims.size<=0}">        
+                        <p>You have no previous orders.</p>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel rendered="{!badgeClaims.size>0}">
+                    <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Date Ordered</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                    <apex:repeat value="{!badgeClaims}" var="claim">
+                    <tr class="">                        
+                        <td>{!claim.claimName}</td>                        
+                        <td>{!claim.claimAddress}</td>                        
+                        <td>{!claim.claimDate}</td>              
+                    </tr>
+                    </apex:repeat>
+                    </tbody>
+                    </table>
+                    </apex:outputPanel>
+                    </div>
+                </fieldset>
+                </apex:form>
+            <!-- End of Name & Address Information -->
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

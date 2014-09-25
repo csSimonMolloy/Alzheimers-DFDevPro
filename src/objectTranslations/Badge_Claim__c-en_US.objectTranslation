@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>Badge Claim</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Badge Claims</value>
+    </caseValues>
+    <fields>
+        <label><!-- BC Ext Id --></label>
+        <name>BC_Ext_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Badge Claimed --></label>
+        <name>Badge_Claimed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Ext Id --></label>
+        <name>Contact_Ext_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- DF Contact --></label>
+        <name>DF_Contact__c</name>
+        <relationshipLabel><!-- Badge Claims --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street 2 --></label>
+        <name>Street_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Town/City --></label>
+        <name>Town_City__c</name>
+    </fields>
+    <layouts>
+        <layout>Badge Claim Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

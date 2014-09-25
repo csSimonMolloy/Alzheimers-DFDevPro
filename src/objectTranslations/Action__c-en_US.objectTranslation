@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Actions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- DF Contact --></label>
+        <name>DF_Contact__c</name>
+        <relationshipLabel><!-- Actions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Allow pledge (action) to be shown on the homepage. --></help>
+        <label><!-- Homepage --></label>
+        <name>Homepage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Leave this box ticked if you are happy for your pledge to be displayed on our website. --></help>
+        <label><!-- Public --></label>
+        <name>Public__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

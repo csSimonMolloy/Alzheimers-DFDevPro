@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c.Event_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c.Postcode__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c.Number_of_Attendees__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c.Number_of_Places__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c.Public_Event__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>DF_Event__c.RecordType_Name__c</column>
+            <operator>equals</operator>
+            <value>dementia friend awareness session</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Type_of_Champion__c</column>
+            <operator>notEqual</operator>
+            <value>Type 1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Event__c.Number_of_Attendees__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>WR - 7d. Number of Sessions unreported</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$DF_Contact__c$DF_Event__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Event__c.Event_Date_Time__c</dateColumn>
+        <endDate>2014-07-10</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

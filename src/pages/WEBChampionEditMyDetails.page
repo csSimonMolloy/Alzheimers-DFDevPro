@@ -1,0 +1,147 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampionEditMyDetails" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="friend-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu activeValue="EDIT" isChampion="{!isChampion}" isConverted="{!dfContactRecord.Code_Verefied__c}"/>              
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center"></div>                    
+                <div class="header">
+                    <h1>Edit my details</h1>
+                </div>
+                <apex:form styleClass="aerian-form admin-form form-horizontal" forceSSL="true">
+                    <fieldset accept-charset="utf-8">
+                        <apex:outputPanel rendered="{!LEN(standardErrorMsg)>0}">
+                            <p><apex:outputText value="{!standardErrorMsg}" styleClass="form-inerror-message alert"/></p>
+                        </apex:outputPanel>
+                        
+                        <div class="control-group element-email element-type-text required">
+                            <label for="email" class="control-label required">Email address</label>
+                            <div class="controls">
+                                <apex:inputText id="email" value="{!dfContactRecord.Email__c}" styleClass=" aerian input-text input" />
+                                <apex:outputText value="{!emailError}" rendered="{!LEN(emailError)>0}" styleClass="text-error"/>
+                                <!-- <apex:outputText id="email" value="{!dfContactRecord.Email__c}" styleClass=" aerian input-text input" /> -->
+                            </div>
+                        </div>
+                        
+                        <div class="control-group element-title element-type-select required">
+                            <label for="title" class="control-label required">Title</label>
+                            <div class="controls">
+                                <apex:selectList value="{!dfContactRecord.Title__c}" size="1" id="title" styleClass=" input-select input">
+                                    <apex:selectOptions value="{!titleList}"/>
+                                </apex:selectList>
+                                <!-- <select name="title" id="title" class=" input-select input">
+                                    <option value="" label="Select...">Select...</option>
+                                    <option value="Mr." label="Mr." selected="selected">Mr.</option>
+                                    <option value="Mrs." label="Mrs.">Mrs.</option>
+                                    <option value="Miss" label="Miss">Miss</option>
+                                    <option value="Ms." label="Ms.">Ms.</option>
+                                    <option value="Other" label="Other">Other</option>
+                                </select> -->
+                            </div>
+                        </div>
+                        <div class="control-group element-firstName element-type-text required {!IF(LEN(firstNameError)>0,'error','')}">
+                            <label for="firstName" class="control-label required">First name</label>
+                            <div class="controls">
+                                <apex:inputText id="firstName" value="{!dfContactRecord.First_Name__c}" styleClass=" aerian input-text input" />
+                                <apex:outputText value="{!firstNameError}" rendered="{!LEN(firstNameError)>0}" styleClass="text-error"/>
+                            </div>
+                        </div>
+                        <div class="control-group element-lastName element-type-text required {!IF(LEN(lastNameError)>0,'error','')}">
+                            <label for="lastName" class="control-label required">Last name</label>
+                            <div class="controls">
+                                <apex:inputText id="lastName" value="{!dfContactRecord.Last_Name__c}" styleClass=" aerian input-text input" />
+                                <apex:outputText value="{!lastNameError}" rendered="{!LEN(lastNameError)>0}" styleClass="text-error"/>
+                            </div>
+                        </div>
+                        <div class="control-group element-address1 element-type-text optional">
+                            <label for="address1" class="control-label optional">Address</label>
+                            <div class="controls">
+                                <apex:inputText id="address1" value="{!dfContactRecord.Street__c}" styleClass=" aerian input-text input" />
+                                <!-- <input type="text" name="address1" id="address1" value="" class="input-xxlarge aerian input-text input" maxlength="100" /> -->
+                            </div>
+                        </div>
+                        <!-- 2014-08-12 : CSL : Removing 'Address Line 2' from all forms -->
+                        <!-- <div class="control-group element-address2 element-type-text optional">
+                            <label for="address2" class="control-label optional">Address2</label>
+                            <div class="controls">
+                                <input type="text" name="address2" id="address2" value="" class="input-xxlarge aerian input-text input" maxlength="100" />
+                            </div>
+                        </div> -->
+                        <div class="control-group element-townCity element-type-text optional">
+                            <label for="townCity" class="control-label optional">Town / City</label>
+                            <div class="controls">
+                                <apex:inputText id="townCity" value="{!dfContactRecord.City__c}" styleClass=" aerian input-text input" />
+                                <!-- <input type="text" name="townCity" id="townCity" value="" class="input-xxlarge aerian input-text input" maxlength="100" /> -->
+                            </div>
+                        </div>
+                        <div class="control-group element-county element-type-text optional">
+                            <label for="county" class="control-label optional">County</label>
+                            <div class="controls">
+                                <apex:inputText id="county" value="{!dfContactRecord.County__c}" styleClass=" aerian input-text input" />
+                                <!-- <input type="text" name="county" id="county" value="" class="input-xxlarge aerian input-text input" maxlength="100" /> -->
+                            </div>
+                        </div>
+                        
+                        <div class="control-group element-postcode element-type-text required {!IF(LEN(postCodeError)>0,'error','')}">
+                            <label for="postcode" class="control-label required">Post Code</label>
+                            <div class="controls">
+                                <apex:inputText id="postcode" value="{!dfContactRecord.Postcode__c}" styleClass=" aerian input-text input" />
+                                <apex:outputText value="{!postCodeError}" rendered="{!LEN(postCodeError)>0}" styleClass="text-error"/>
+                                <!-- <input type="text" name="county" id="county" value="" class="input-xxlarge aerian input-text input" maxlength="100" /> -->
+                            </div>
+                        </div>
+                        <div class="control-group element-contactNumber element-type-text optional">
+                            <label for="contactNumber" class="control-label optional">Telephone</label>
+                            <div class="controls">
+                                <apex:inputText id="contactNumber" value="{!dfContactRecord.Contact_Number__c}" styleClass=" aerian input-text input" />
+                                <!-- <input type="text" name="townCity" id="townCity" value="" class="input-xxlarge aerian input-text input" maxlength="100" /> -->
+                            </div>
+                        </div>
+                        <div class="control-group element-newsletter element-type-checkbox required">
+                            <label for="newsletter" class="control-label optional">Newsletter signup</label>
+                            <div class="controls">
+                                <apex:inputCheckbox value="{!dfContactRecord.Newsletters__c}" styleClass=" input-checkbox input"/>
+                                <!-- <input type="hidden" name="newsletter" value="0" />
+                                <input type="checkbox" name="newsletter" id="newsletter" value="1" checked="checked" class=" input-checkbox input" /> -->
+                                <p class="help-block">Sign up to Dementia Friends e-newsletter and further communications from Alzheimers Society</p>
+                            </div>
+                        </div>
+                        <fieldset id="fieldset-actions" class="form-actions">
+                            <apex:commandButton id="save" action="{!saveUserDetails}" value="Save changes" styleClass="btn-primary input-submit btn" />
+                            <a href="WEBChampion" class="btn">Cancel</a>
+                        </fieldset>
+                    </fieldset>
+                </apex:form>                
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+    
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

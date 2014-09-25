@@ -1,0 +1,212 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBFriend" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Friend Dashboard" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="friend-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBFriendNavigationMenu activeValue="DASHBOARD" />               
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                    <apex:outputPanel rendered="{!registeredAsFriend}" >
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            Thank you for entering your Dementia Friends session code. Now you can <a href="/WEBFriendCreateAction">make an action.</a>            
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(ISBLANK(messageArea),FALSE,TRUE)}" >
+                        <div class="alert {!messageAreaClass}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {!messageArea}        
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!showSaveConfirmation}">
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            Your details have been successfully changed.            
+                        </div>
+                    </apex:outputPanel>  
+                    <apex:outputPanel rendered="{!showUnbookedConfirmation}">
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        You successfully unregistered for the session.            
+                    </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!showAction}">
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <apex:outputText value="Action '{!showActionText}' saved"/>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+                  
+                <apex:outputPanel rendered="{!isFriend && NOT(isFriendConverted)}">
+                    <section class="enter-code">
+                        <p>Have you attended your Dementia Friends session? Enter your code here:</p> 
+                        <apex:form styleClass="aerian-form admin-form form-horizontal">
+                            <fieldset accept-charset="utf-8">
+                                <div class="control-group element-code element-type-text required">
+                                    <div class="controls">
+                                        <apex:inputText id="code" value="{!sessionCode}" styleClass=" input-text input {!IF(LEN(sessionCodeError)>0,'error','')}" size="10" style="width:140px;"/>
+                                        <apex:outputText value="{!sessionCodeError}" rendered="{!LEN(sessionCodeError)>0}" styleClass="text-error"/>
+                                    </div>
+                                </div>
+                                <div class="controls">
+                                    <apex:commandButton action="{!registerCode}" id="registerCode" value="Submit" styleClass=" input-submit btn" />
+                                </div>
+                            </fieldset>
+                        </apex:form>    
+                    </section>
+                </apex:outputPanel>
+
+                <div class="dash-panel">
+                    <div class="dash-panel-content">
+                        <p class="main"><span class="metric-large snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p></span></p>
+                        <p>Total number of Dementia Friends</p>    
+                    </div>
+                    <apex:outputPanel rendered="{!AND(isFriendConverted, !hasActions)}" >
+                        <div class="dash-panel-footer">
+                            <a class="btn btn-secondary" href="/WEBFriendCreateAction">
+                            Tell us your action
+                            </a>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+
+                <div class="task-list">
+                    <header class="header">
+                        <h3>My Dementia Friend status</h3>
+                    </header>
+                    <div class="snippet snippet-rich_text rte">
+                        <ul class="list">
+                            <li>Registered an account</li>
+                            <li class="{!IF(hasRegisteredForSession,'','incomplete')}">{!registerText}
+                                <!-- <apex:outputPanel rendered="{!NOT(OR(isFriend,isChampion))}"> -->
+                                <apex:outputPanel rendered="{!!hasRegisteredForSession}">
+                                    <a class="btn btn-primary" href="/WEBSession">Search</a>
+                                </apex:outputPanel>
+                            </li>
+                            <li class="{!IF(hasSessionCode,'','incomplete')}">{!sessionCodeText}
+                                <apex:outputPanel rendered="{!isFriend && NOT(isFriendConverted)}">
+                                    <apex:form styleClass="aerian-form admin-form form-horizontal">
+                                        <fieldset accept-charset="utf-8">
+                                            <div class="control-group element-code element-type-text required">
+                                                <div class="controls">
+                                                    <apex:inputText id="code" value="{!sessionCode}" styleClass=" input-text input {!IF(LEN(sessionCodeError)>0,'error','')}" />
+                                                    <apex:outputText value="{!sessionCodeError}" rendered="{!LEN(sessionCodeError)>0}" styleClass="text-error"/>
+                                                </div>
+                                            </div>
+                                            <div class="controls">
+                                                <apex:commandButton action="{!registerCode}" id="registerCode2" value="Submit" styleClass=" input-submit btn" />
+                                            </div>
+                                        </fieldset>
+                                    </apex:form>
+                                </apex:outputPanel>
+                            </li>
+                            <li class="{!IF(hasActions,'','incomplete')}">{!actionText}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <apex:outputPanel rendered="{!AND(hasRegisteredForSession, hasSessionCode)}" > -->
+                <apex:outputPanel rendered="{!isFriendConverted}" >
+                    <div id="actions">
+                    <apex:form >
+                        <ul>
+                            <li>
+                                <apex:outputPanel rendered="{!!hasActions}">
+                                <a class="btn btn-primary call-to-action" href="/WEBFriendCreateAction">Tell us your action <i class="icon-play icon-white"></i></a>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!hasActions}">
+                                <a class="btn btn-primary call-to-action" href="/WEBFriendCreateAction?Id={!theAction.Id}">Edit your action <i class="icon-play icon-white"></i></a>
+                                </apex:outputPanel>
+                            </li>
+                        </ul>
+                    </apex:form>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!AND(events.size>0,!isFriendConverted)}">
+                    <div class="clear"/>
+                    <div class="clear"/>
+                    <div class="my-sessions">
+                        <h2>My sessions</h2>
+                        <div class="crud-list">
+                            <table class="table table-bordered table-striped ">
+                            <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Date</th>
+                                <th>Town / City</th>
+                                <th>Postcode</th>
+                                <th>Attendees</th>
+                                <apex:outputPanel rendered="{!showViewDetailsButton}">
+                                <th class="list-actions">&nbsp;</th>
+                                </apex:outputPanel>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!-- APEX REPEAT TAG GOES HERE -->
+                                <apex:repeat value="{!events}" var="event">
+                                <tr>
+                                    <td><span class="crud-widget-date crud-widget-date-time ">
+                                    <apex:outputText value="{0,date,HH:mm}">
+                                        <apex:param value="{!event.DF_Event__r.Event_Date_Time__c}"/>
+                                    </apex:outputText>                                      
+                                    </span></td>
+                                    <td><span class="crud-widget-date crud-widget-date-date ">
+                                    <apex:outputText value="{0,date,dd MMM yyyy}">
+                                        <apex:param value="{!event.DF_Event__r.Event_Date_Time__c}"/>
+                                    </apex:outputText>
+                                    </span></td>
+                                    <td>{!event.DF_Event__r.City__c}</td>
+                                    <td>{!event.DF_Event__r.Postcode__c}</td>
+                                    <td>{!event.DF_Event__r.Number_of_Attendees__c}</td>
+                                    <apex:outputPanel rendered="{!showViewDetailsButton}">
+                                    <td class="list-actions grouped-button">
+                                        <div class="btn-group">
+                                            <apex:outputPanel rendered="{!isSession}">
+                                                <a href="WEBSessionDetails?Id={!event.DF_Event__r.Id}" class="book-session btn btn-primary btn-large">View details</a>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!isTraining}">
+                                                <a href="WEBTrainingDetails?Id={!event.DF_Event__r.Id}" class="book-session btn btn-primary btn-large">View details</a>
+                                            </apex:outputPanel>
+                                        </div>
+                                    </td>
+                                    </apex:outputPanel>
+                                </tr>
+                                </apex:repeat>
+                                <!-- END OF APEX REPEAT TAG -->
+                                
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+             </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+    
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

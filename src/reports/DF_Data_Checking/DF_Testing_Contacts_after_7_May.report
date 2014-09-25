@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Email__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Session_Code_Verified__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Code_Verefied__c</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <description>Test accounts created on or after the 7th May</description>
+    <filter>
+        <criteriaItems>
+            <column>DF_Contact__c.Email__c</column>
+            <operator>contains</operator>
+            <value>sunwu,test.,test@,mailinator.com</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>DF Testing Contacts after 7 May</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$DF_Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-05-07</startDate>
+    </timeFrameFilter>
+</Report>

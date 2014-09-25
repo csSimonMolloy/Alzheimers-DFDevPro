@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>DF_Contact__c.First_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Last_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Email__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Postcode__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Partner_Organisation_ID__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Total_No_of_Available_Info_Sessions__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Total_No_of_Friends_Created__c</field>
+    </columns>
+    <description>DFCs registered, not booked on training in BL, CA, CH, FY, L, LA, M, PR, SK, WA, WN. Check postcodes for L and M not required</description>
+    <filter>
+        <criteriaItems>
+            <column>DF_Contact__c.RecordType_Name__c</column>
+            <operator>equals</operator>
+            <value>dementia friend champion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Partner_Organisation_ID__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Prospective</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Postcode__c</column>
+            <operator>startsWith</operator>
+            <value>bl,ca,ch,fy,l,la,m,pr,sk,wa,wn</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>DF_Contact__c.Newsletters__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>NJM - Regional (North West)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$DF_Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Contact__c.Date_of_Champion_Training__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

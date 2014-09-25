@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>News</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>News</value>
+    </caseValues>
+    <fields>
+        <label><!-- Body Text --></label>
+        <name>Body_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ticking this box means this news item can appear on the homepage, if it is one of the latest five homepage news articles --></help>
+        <label><!-- Promote On Homepage --></label>
+        <name>Promote_On_Homepage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only news stories with a published date in the past will be visible on the site. Choose today&apos;s date to publish immediately. --></help>
+        <label><!-- Publish Date --></label>
+        <name>Publish_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SEO Description --></label>
+        <name>SEO_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- SEO Keywords --></label>
+        <name>SEO_Keywords__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- A unique text reference used to identify this article. This will be used in the news URL. --></help>
+        <label><!-- Unique Text --></label>
+        <name>Unique_Text__c</name>
+    </fields>
+    <layouts>
+        <layout>News Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

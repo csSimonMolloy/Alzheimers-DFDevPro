@@ -1,0 +1,46 @@
+<messaging:emailTemplate subject="Your Dementia Friends session booking confirmed" recipientType="Contact" relatedToType="DF_EventAttendee__c">
+<messaging:htmlEmailBody >
+<!-- <img src="{!URLFOR($Resource.img, 'img/f/logo.png')}" height="103" width="259" alt="Dementia Friends" /> -->
+<apex:image id="Logo" value="https://c.eu0.content.force.com/servlet/servlet.ImageServer?id=01520000001HfE1&oid=00D20000000CwQc" height="103" width="259"/>
+<br/>
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+<br/><br/>
+Thank you for booking a place on the following Dementia Friends' Information Session.
+<br/><br/>
+Course date: - {!relatedTo.DF_Event__r.Event_Date_Time__c}<br/>
+Course location: 
+{!relatedTo.DF_Event__r.Location__c}<br/>
+{!relatedTo.DF_Event__r.Street__c}<br/>
+{!relatedTo.DF_Event__r.City__c}<br/>
+{!relatedTo.DF_Event__r.Postcode__c}<br/>
+{!relatedTo.DF_Event__r.County__c}
+<br/><br/>
+To view up to date details of the course, please <a href="http://asdf.force.com/WEBSessionDetails?Id={!relatedTo.DF_Event__r.Id}">click here</a>
+<br/><br/>
+Just to remind you what an information session is and what it will cover. You become a Dementia Friend by attending an Information session, run by a volunteer Dementia Friends Champion. During the session, the Champion will tell you a little more about what it is like to live with dementia, the range of actions you can take to help create dementia friendly communities, and how you can use the website to register any actions that you take. 
+<br/><br/>
+Kind regards,
+<br/><br/>
+Dementia Friends
+<br/><br/>
+<a href="http://www.dementiafriends.org.uk">http://www.dementiafriends.org.uk</a>
+
+</messaging:htmlEmailBody>
+
+<messaging:plainTextEmailBody >
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+
+Thank you for booking a place on the following Dementia Friends' Information Session.
+
+Course date: - {!relatedTo.DF_Event__r.Event_Date_Time__c}<br/>
+Course location: - {!relatedTo.DF_Event__r.Location__c}
+
+Just to remind you what an information session is and what it will cover. You become a Dementia Friend by attending an Information session, run by a volunteer Dementia Friends Champion. During the session, the Champion will tell you a little more about what it is like to live with dementia, the range of actions you can take to help create dementia friendly communities, and how you can use the website to register any actions that you take. 
+
+Kind regards,
+
+Dementia Friends
+
+http://www.dementiafriends.org.uk
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Attended__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Attended?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Average_No_of_Champions_Created__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Average No of Champions Created</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Average_No_of_Friends_Created__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Average Number of Friends Created</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <label>City/Town</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Code_Verefied__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>User Code Verefied</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Ext_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Contact Ext Id</label>
+        <precision>8</precision>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Number__c</fullName>
+        <label>Contact Number</label>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Contacted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Contacted?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Country_Picklist__c</fullName>
+        <label>Country Picklist</label>
+        <picklist>
+            <picklistValues>
+                <fullName>England</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <label>Country</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <label>County</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Data_Loader__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Data Loader</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Champion_Training__c</fullName>
+        <label>Date of Champion Training</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Eligible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Eligible?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <externalId>true</externalId>
+        <label>Email</label>
+        <required>true</required>
+        <type>Email</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>FacebookId__c</fullName>
+        <label>FacebookId</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <label>First Name</label>
+        <length>45</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Interests__c</fullName>
+        <label>Interests</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events/Exhibitions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Is_18_or_over__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Is 18 or over</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <label>Last Name</label>
+        <length>45</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Lives_in_England__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Lives in England?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Make_Pledge_Public__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Make Pledge Public</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <formula>Last_Name__c &amp; &quot;,  &quot; &amp; First_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Newsletters__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Newsletters</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Note__c</fullName>
+        <label>Note</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Friends_Influenced__c</fullName>
+        <label>Number of Friends Influenced</label>
+        <summarizedField>DF_Event__c.Number_of_Attendees__c</summarizedField>
+        <summaryForeignKey>DF_Event__c.Session_Organiser__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Private_Sessions_Run__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Number of Private Sessions Run</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Public_Sessions_Run__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Number of Public Sessions Run</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Organisation_ID__c</fullName>
+        <label>Partner Organisation ID</label>
+        <referenceTo>Partner_Organisation__c</referenceTo>
+        <relationshipLabel>DF Champions</relationshipLabel>
+        <relationshipName>DF_Contacts</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pledge_Name__c</fullName>
+        <label>Pledge Name</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Contact__c</fullName>
+        <label>Portal Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>DF Contacts</relationshipLabel>
+        <relationshipName>DF_Contacts</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Postcode__c</fullName>
+        <label>Postcode</label>
+        <length>11</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>RecordType_Name__c</fullName>
+        <formula>$RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RecordType Name</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Support_Officer__c</fullName>
+        <label>Regional Support Officer</label>
+        <referenceTo>DF_Contact__c</referenceTo>
+        <relationshipLabel>DF Contacts</relationshipLabel>
+        <relationshipName>DF_Contacts</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Registered_Events_Count__c</fullName>
+        <label>Registered Events Count</label>
+        <summaryForeignKey>DF_EventAttendee__c.DF_Contact__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Session_Code_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Session Code Verified</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hiatus/Resting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Street__c</fullName>
+        <label>Street</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <label>Title</label>
+        <length>11</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Total_No_of_Available_Info_Sessions__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Total No of Available Info Sessions</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Total_No_of_Cancelled_Info_Sessions__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Total No of Cancelled Info Sessions</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Total_No_of_Champions_Created__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Total No of Champions Created</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Total_No_of_Completed_Info_Sessions__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Total No of Completed Info Sessions</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Total_No_of_Friends_Created__c</fullName>
+        <defaultValue>0</defaultValue>
+        <label>Total Number of Friends Created</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Trainer__c</fullName>
+        <label>Trainer</label>
+        <referenceTo>DF_Contact__c</referenceTo>
+        <relationshipLabel>DF Contacts (Trainer)</relationshipLabel>
+        <relationshipName>Trainer</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Champion__c</fullName>
+        <label>Type of Champion</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Children’s Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <label>DF Contact</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RecordType_Name__c</columns>
+        <columns>Portal_Contact__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>Title__c</columns>
+        <columns>NAME</columns>
+        <columns>Email__c</columns>
+        <columns>Contact_Number__c</columns>
+        <columns>Lives_in_England__c</columns>
+        <columns>Postcode__c</columns>
+        <columns>Is_18_or_over__c</columns>
+        <columns>RecordType_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>Attended__c</columns>
+        <columns>Newsletters__c</columns>
+        <columns>Session_Code_Verified__c</columns>
+        <columns>Code_Verefied__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Champions_With_RSO</fullName>
+        <columns>NAME</columns>
+        <columns>Name__c</columns>
+        <columns>Email__c</columns>
+        <columns>Regional_Support_Officer__c</columns>
+        <columns>Postcode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Contact__c.Dementia_Friend_Champion</value>
+        </filters>
+        <label>Champions With RSO</label>
+    </listViews>
+    <listViews>
+        <fullName>Created_Today</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>Email__c</columns>
+        <columns>RecordType_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Created Today</label>
+    </listViews>
+    <listViews>
+        <fullName>Dementia_Friend_Champions</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Newsletters__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Partner_Organisation_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Contact__c.Dementia_Friend_Champion</value>
+        </filters>
+        <label>Dementia Friend Champions</label>
+    </listViews>
+    <listViews>
+        <fullName>Dementia_Friends</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Newsletters__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Contact__c.Dementia_Friend</value>
+        </filters>
+        <label>Dementia Friends</label>
+    </listViews>
+    <listViews>
+        <fullName>E_Newsletter_Subscribers</fullName>
+        <columns>NAME</columns>
+        <columns>Newsletters__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Contact__c.E_Newsletter_Subscriber</value>
+        </filters>
+        <label>E-Newsletter Subscribers</label>
+    </listViews>
+    <listViews>
+        <fullName>Modified_Today</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>Email__c</columns>
+        <columns>RecordType_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <filters>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <operation>equals</operation>
+            <value>sjenn</value>
+        </filters>
+        <label>Modified Today</label>
+    </listViews>
+    <listViews>
+        <fullName>RSO_Contacts</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Contact__c.RSO</value>
+        </filters>
+        <label>RSO Contacts</label>
+    </listViews>
+    <nameField>
+        <label>DF Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>DF Contacts</pluralLabel>
+    <recordTypes>
+        <fullName>Admin</fullName>
+        <active>true</active>
+        <label>Admin</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Dementia_Friend</fullName>
+        <active>true</active>
+        <label>Dementia Friend</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Dementia_Friend_Champion</fullName>
+        <active>true</active>
+        <label>Dementia Friend Champion</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>E_Newsletter_Subscriber</fullName>
+        <active>true</active>
+        <label>E-Newsletter Subscriber</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RSO</fullName>
+        <active>true</active>
+        <description>Regional Support Officer</description>
+        <label>RSO</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Registration</fullName>
+        <active>true</active>
+        <label>Registration</label>
+        <picklistValues>
+            <picklist>Country_Picklist__c</picklist>
+            <values>
+                <fullName>England</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>BSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events%2FExhibitions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Languages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Care Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hiatus%2FResting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Champion__c</picklist>
+            <values>
+                <fullName>Children%E2%80%99s Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fast tracked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mentor Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Champion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_of_Champion__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Regional_Support_Officer__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Email__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>First_Name__c</lookupFilterFields>
+        <lookupFilterFields>Last_Name__c</lookupFilterFields>
+        <searchFilterFields>First_Name__c</searchFilterFields>
+        <searchFilterFields>Last_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Do_Not_Allow_Northern_Ireland_in_Country</fullName>
+        <active>true</active>
+        <description>Prevent the selection of &quot;Northern Ireland&quot; picklist value to ensure alignment of the contact and the DF website</description>
+        <errorConditionFormula>ISPICKVAL( Country_Picklist__c , &quot;Northern Ireland&quot;)</errorConditionFormula>
+        <errorMessage>Northern Ireland cannot be selected as a value in the Country Picklist as it is not selectable on the Dementia Friends website</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EMail_Validaiton</fullName>
+        <active>false</active>
+        <errorConditionFormula>NOT(REGEX( Email__c , &apos;([a-zA-Z0-9_\\-\\.]+)@(((\\[a-z]{1,3}\\.[a-z]{1,3}\\.[a-z]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3}))&apos;))</errorConditionFormula>
+        <errorDisplayField>Email__c</errorDisplayField>
+        <errorMessage>Please enter the correct email format</errorMessage>
+    </validationRules>
+</CustomObject>

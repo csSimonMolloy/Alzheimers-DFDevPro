@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Available_On_Website__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Available On Website</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <label>City</label>
+        <length>255</length>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <label>Comments</label>
+        <length>500</length>
+        <trackHistory>true</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <label>Country</label>
+        <length>255</length>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <label>County</label>
+        <length>255</length>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Data_Loader__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Data Loader</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Event_Date_Time__c</fullName>
+        <label>Event Date &amp; Time</label>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Description__c</fullName>
+        <label>Event Description</label>
+        <length>500</length>
+        <trackHistory>true</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_End_Date_Time__c</fullName>
+        <label>Event End Date Time</label>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Ext_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Event Ext Id</label>
+        <precision>8</precision>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Status__c</fullName>
+        <label>Event Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Available</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Location_Geographic_Details__c</fullName>
+        <label>Location Geographic Details</label>
+        <scale>4</scale>
+        <trackHistory>true</trackHistory>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <label>Location</label>
+        <length>500</length>
+        <trackHistory>true</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_Of_Attendee_Records__c</fullName>
+        <label>Number Of Attendee Records</label>
+        <summaryFilterItems>
+            <field>DF_EventAttendee__c.Event_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>DF_EventAttendee__c.DF_Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_Of_Champions_Attended__c</fullName>
+        <label>Number Of Champions Attended</label>
+        <summaryForeignKey>DF_EventAttendee__c.DF_Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Attendees__c</fullName>
+        <label>Number of Attendees</label>
+        <precision>4</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Places__c</fullName>
+        <label>Number of Places</label>
+        <precision>4</precision>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Postcode__c</fullName>
+        <label>Postcode</label>
+        <length>11</length>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Public_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Public Event</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RecordType_Name__c</fullName>
+        <formula>$RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RecordType Name</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Session_Organiser__c</fullName>
+        <label>Session Organiser</label>
+        <referenceTo>DF_Contact__c</referenceTo>
+        <relationshipLabel>Sessions Organised</relationshipLabel>
+        <relationshipName>DF_Events</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>true</trackHistory>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Street__c</fullName>
+        <label>Street</label>
+        <length>255</length>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Total_Session_Hours__c</fullName>
+        <label>Total Session Hours</label>
+        <precision>4</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Trainer__c</fullName>
+        <label>Trainer</label>
+        <referenceTo>DF_Contact__c</referenceTo>
+        <relationshipLabel>DF Events (Trainer)</relationshipLabel>
+        <relationshipName>DF_Events1</relationshipName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Wheel_Chair_Access__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Wheel Chair Access</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <label>DF Event</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Event_Date_Time__c</columns>
+        <columns>Event_Status__c</columns>
+        <columns>Location__c</columns>
+        <columns>Number_of_Places__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Champion_Training_Events</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Date_Time__c</columns>
+        <columns>Event_Status__c</columns>
+        <columns>City__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Session_Organiser__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Event__c.Champion_Training_Course</value>
+        </filters>
+        <label>Champion Training Events</label>
+    </listViews>
+    <listViews>
+        <fullName>Created_Today</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Status__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Created Today</label>
+    </listViews>
+    <listViews>
+        <fullName>Data_Loader</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Event_Date_Time__c</columns>
+        <columns>Event_Status__c</columns>
+        <columns>Location__c</columns>
+        <columns>Number_of_Places__c</columns>
+        <columns>Data_Loader__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Data_Loader__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Data Loader</label>
+    </listViews>
+    <listViews>
+        <fullName>Dementia_Friend_Awareness_Sessions_Avail</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Date_Time__c</columns>
+        <columns>Event_Status__c</columns>
+        <columns>City__c</columns>
+        <columns>Postcode__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Session_Organiser__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>DF_Event__c.Dementia_Friend_Awareness_Session</value>
+        </filters>
+        <filters>
+            <field>Event_Status__c</field>
+            <operation>equals</operation>
+            <value>Available</value>
+        </filters>
+        <label>Dementia Friend Awareness Sessions Avail</label>
+    </listViews>
+    <nameField>
+        <label>DF Event Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>DF Events</pluralLabel>
+    <recordTypes>
+        <fullName>Champion_Training_Course</fullName>
+        <active>true</active>
+        <description>Events organised by Alzheimers Society/Trusted Partners</description>
+        <label>Champion Training Course</label>
+        <picklistValues>
+            <picklist>Event_Status__c</picklist>
+            <values>
+                <fullName>Available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Dementia_Friend_Awareness_Session</fullName>
+        <active>true</active>
+        <description>Events organised by DF Champions</description>
+        <label>Dementia Friend Awareness Session</label>
+        <picklistValues>
+            <picklist>Event_Status__c</picklist>
+            <values>
+                <fullName>Available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Event_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Event_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Postcode__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Event_Date_Time__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Event_Attendee_List</fullName>
+        <availability>online</availability>
+        <description>List of all DFs or DFCs attending the event</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Event Attendee List</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>try
+{
+	//alert(&apos;{!DF_Event__c.Id}&apos;);
+	//alert(&apos;{!JSENCODE(DF_Event__c.Name)}&apos;);
+	{!requireScript(&quot;/soap/ajax/24.0/connection.js&quot;)};
+	var result =sforce.connection.query(&quot;Select Id, Name from Report where Name = &apos;DF Event Attendees&apos;&quot;);
+	var recs = result.getArray(&quot;records&quot; );
+                     //alert(recs[0].Id);
+	window.location.href=&apos;/&apos;+recs[0].Id + &apos;?pv0={!JSENCODE(DF_Event__c.Name)}&amp;pv5={!DF_Event__c.Id}&apos;;
+  }
+catch(ex){alert(ex);}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Filter_Attendees</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Filter Attendees</masterLabel>
+        <openType>noSidebar</openType>
+        <page>Df_Contact_Filter</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Update_Attendee_Status</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Update Attendees Status</masterLabel>
+        <openType>noSidebar</openType>
+        <page>DF_Contact_Status</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Update_Attendees_Status</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasScrollbars>true</hasScrollbars>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Update Attendees Status</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <url>http://asdf.force.com</url>
+    </webLinks>
+</CustomObject>

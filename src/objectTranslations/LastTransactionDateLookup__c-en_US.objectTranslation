@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>LastTransactionDateLookup</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>LastTransactionDateLookups</value>
+    </caseValues>
+    <fields>
+        <label><!-- lastTransactionDate --></label>
+        <name>lastTransactionDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- objectAPIName --></label>
+        <name>objectAPIName__c</name>
+    </fields>
+    <fields>
+        <label><!-- objectPrefix --></label>
+        <name>objectPrefix__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

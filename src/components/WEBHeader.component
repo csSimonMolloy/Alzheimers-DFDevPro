@@ -1,0 +1,69 @@
+<apex:component controller="WEBController">
+    <apex:attribute name="activeValue" description="Which menu is active ?" type="String" required="false"/>
+    
+    <!-- WEBHEADER COMPONENT START -->
+    <header class="page-header">
+        <div class="wrapper">
+            <div class="logo"><a href="/">
+                <img src="{!URLFOR($Resource.img, 'img/f/logo.png')}" height="103" width="259" alt="Dementia Friends" /></a>
+            </div>
+            <div class="account-info">
+                <apex:outputPanel rendered="{!NOT(IF(isloggedIn==TRUE,true,false))}">
+                    <div class="user-area">
+                        <ul>
+                            <li><a href="{!baseSiteSecureURL}WEBLogin">Sign in</a></li>
+                            <li><a href="{!baseSiteSecureURL}WEBRegister">Register</a></li>
+                        </ul>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(isloggedIn==TRUE,true,false)}">
+                    <div class="user-area">
+                        <div>Hi <strong>{!thisUser.title + ' ' + thisUser.firstName + ' ' + thisUser.lastName}</strong></div>
+                        <ul>
+                            <li><a href="secur/logout.jsp">Sign out</a></li>
+                            <li><a href="{!IF(isChampion,'WEBChampion','WEBFriend')}">My dashboard</a></li>
+                        </ul>
+                    </div>
+                </apex:outputPanel>
+
+                <div class="social-media">
+                    <p>Follow:</p>
+                    <a class="twitter" href="https://twitter.com/dementiafriends">Follow us on Twitter</a> 
+                    <a class="facebook" href="https://www.facebook.com/DementiaFriends">Find us on Facebook</a>
+                    <a href="WEBNewsLetterSignup" class="btn btn-primary">Subscribe to our newsletter</a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="navigation">
+                    <li class="{!IF(activeValue=='HOME','active','')}" >
+                       <a href="/">Home</a>
+                    </li>
+                    <li class="{!IF(activeValue=='GET INVOLVED','active','')}">
+                        <a href="WEBAboutPage">Get involved</a>
+                        <ul>
+                            <li>
+                                <a href="WEBArticle?page=what-is-a-friend">What is a Friend?</a>
+                            </li>
+                            <li>
+                                <a href="WEBArticle?page=what-is-a-champion">What is a Champion?</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{!IF(activeValue=='FAQ','active','')}" >
+                        <a href="WEBFAQs">FAQs</a>
+                    </li>
+                    <li class="{!IF(activeValue=='WHAT IS DEMENTIA','active','')}">
+                        <a href="WEBArticle?page=what-is-dementia">What is dementia?</a>
+                    </li>
+                    <li class="{!IF(activeValue=='NEWS','active','')}" > 
+                        <a href="WEBNews">News &amp; press</a>
+                    </li>
+                    <li class="{!IF(activeValue=='CONTACT','active','')}" >
+                        <a href="WEBContactForm">Contact</a>
+                    </li>
+                </ul>    
+            </nav>
+        </div>
+    </header>
+    <!-- WEBHEADER COMPONENT END -->
+</apex:component>

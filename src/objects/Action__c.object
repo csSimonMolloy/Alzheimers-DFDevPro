@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Action__c</fullName>
+        <label>Action</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DF_Contact__c</fullName>
+        <label>DF Contact</label>
+        <referenceTo>DF_Contact__c</referenceTo>
+        <relationshipLabel>Actions</relationshipLabel>
+        <relationshipName>Actions</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Homepage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <inlineHelpText>Allow pledge (action) to be shown on the homepage.</inlineHelpText>
+        <label>Homepage</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Public__c</fullName>
+        <defaultValue>false</defaultValue>
+        <inlineHelpText>Leave this box ticked if you are happy for your pledge to be displayed on our website.</inlineHelpText>
+        <label>Public</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Action</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Action__c</columns>
+        <columns>DF_Contact__c</columns>
+        <columns>Homepage__c</columns>
+        <columns>Public__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{0000}</displayFormat>
+        <label>Action Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Actions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

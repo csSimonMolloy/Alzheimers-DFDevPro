@@ -1,0 +1,93 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBFriendEditMyDetails">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body id="friend-dashboard" class="dashboard ">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBFriendNavigationMenu activeValue="PASSWORD"/>              
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    Your password was successfully changed.            
+                </div>                    
+                <div class="header">
+                    <h1>My details</h1>
+                    <div class="button-action-group pull-right">
+                        <a class="btn btn-primary" href="WEBFriendEditMyDetails">Edit</a>
+                        <a class="btn btn-primary" href="WEBChangePassword">Change my password</a>
+                    </div>
+                </div>
+
+                <table class="table view">
+                    <tr>
+                        <td>Title</td>
+                        <td>{!dfContactRecord.Title__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>First name</td>
+                        <td>{!dfContactRecord.First_Name__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Last name</td>
+                        <td>{!dfContactRecord.Last_Name__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Email</td>
+                        <td>{!dfContactRecord.Email__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Address</td>
+                        <td>{!dfContactRecord.Street__c}</td>
+                    </tr>              
+                    <tr>
+                        <td>Town City</td>
+                        <td>{!dfContactRecord.City__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>County</td>
+                        <td>{!dfContactRecord.County__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Postcode</td>
+                        <td>{!dfContactRecord.Postcode__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Telephone</td>
+                        <td>{!dfContactRecord.Contact_Number__c}</td>
+                    </tr>        
+                    <tr>
+                        <td>Newsletter</td>
+                        <td><span class="crud-widget-binarytostring crud-widget-binarytostring-no" >{!IF(dfContactRecord.Newsletters__c,'Yes','No')}</span></td>
+                    </tr>
+                </table>                
+            </section>
+            <div class="clear-both"></div>
+        </div>
+    </section>
+    
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

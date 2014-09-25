@@ -1,0 +1,102 @@
+<apex:component controller="WEBChampionContactDetailsClass" allowDml="true">
+    <apex:form >
+    <apex:outputPanel layout="block" id="Main" >
+        <apex:pageBlock >
+        
+         <apex:outputPanel layout="block" id="FormPage" rendered="{!displayFormPage}" >
+         
+         <h1>Register interest in Champions' training</h1>
+                <div class="snippet snippet-rich_text rte">
+                <p>Please use this form to book on a Dementia Friends' Champions training session.</p>
+                </div>
+         
+            <table border="0">
+                <tr>
+                <td>
+                    <apex:outputLabel value="Course" />
+                </td>
+                <td>
+                     <apex:outputText value="{0, date, HH:mm}">
+                        <apex:param value="{!courseDate}" /> 
+                     </apex:outputText><br/>
+                     <apex:outputText value="{0, date, MMMM yyyy}">
+                        <apex:param value="{!courseDate}" /> 
+                     </apex:outputText><br/>
+                     <apex:outputLabel value="{!courseStreet}" /><br/>
+                     <apex:outputLabel value="{!courseCity}" /><br/>
+                     <apex:outputLabel value="{!courseCounty}" />
+                     <apex:outputLabel value="{!courseCountry}" /><br/>
+                     <apex:outputLabel value="{!coursePostcode}" /><br/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <apex:outputLabel value="First name *" /> 
+                </td>
+                <td>
+                    <apex:inputText value="{!firstName}" size="60"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <apex:outputLabel value="Last name *" />
+                </td>
+                 <td>
+                <apex:inputText value="{!lastName}" size="60"/>
+                 </td>
+            </tr>
+            <tr>
+                <td>      
+             <apex:outputLabel value="Address *" />
+             </td>
+                 <td>
+             <apex:inputText value="{!address1}" size="60"/>
+             </td>
+            </tr> 
+            <!--   
+            <tr>
+                <td>        
+             <apex:outputLabel value="Address 2" />
+             </td>
+                 <td>
+             <apex:inputText value="{!address2}" size="60"/>
+             </td>
+            </tr>
+            -->    
+             <tr>
+                <td>
+             <apex:outputLabel value="Town / City *" />
+             </td>
+                 <td>
+            <apex:inputText value="{!town_City}" size="60"/>
+            </td>
+            </tr>    
+            <tr>
+                <td>      
+             <apex:outputLabel value="County *" />
+             </td>
+                 <td>
+             <apex:inputText value="{!county}" size="60"/>
+             </td>
+            </tr>    
+            <tr>
+                <td>        
+             <apex:outputLabel value="Postcode *" />
+             </td>
+                 <td>
+             <apex:inputText value="{!postCode}" size="60"/>
+             </td>
+            </tr>    
+         </table>
+         
+         <apex:commandButton value="Submit" styleClass="btn-primary input-submit btn" action="{!submitForm}" rerender="Main" />
+         </apex:outputPanel>
+         
+         <apex:outputPanel layout="block" id="ThankyouPage" rendered="{!displayThankyoupage}" >
+            <h1><apex:outputLabel value="Enquiry sent" /> </h1><br/>
+            <apex:outputLabel value="Thank you for booking into the Dementia Friends Champions' training session. A trainer from Alzheimer's Society will be in contact with further information shortly." />
+         </apex:outputPanel>
+        </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:component>

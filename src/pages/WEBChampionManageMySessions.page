@@ -1,0 +1,180 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBChampionManageMySessions" action="{!loginRedirect}">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    <!-- CHECK THIS ON THE ORIGONAL PAGE FOR NEW CLASSES -->
+    <body id="champion-dashboard" class="dashboard ">
+    
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+
+    <section class="page-content" id="page_content">
+        <div class="wrapper">
+            <section class="secondary-content">
+                <c:WEBChampionNavigationMenu activeValue="MANAGEMYSESSIONS" isChampion="{!isChampion}" isConverted="{!isConverted}"/>
+                <a class="btn btn-primary {!IF(isChampion,'badge-action','disabled')}" href="/WEBBadgeOrder">Order 50 badges / infocards</a>
+                <span class="btn btn-secondary badge-action snippet"><p><apex:outputText value="{!totalFriendsSnippet.Body_Text__c}" escape="false"/></p> Total Number of Dementia Friends</span>
+                    
+                <section class="member-info-details">
+                    <c:WEBMemberDetails />
+                </section>
+            </section>
+            <section class="main-content">
+                <div id="message-center">
+                    <apex:outputPanel rendered="{!IF(ISBLANK(messageArea),FALSE,TRUE)}" >
+                        <div class="alert {!messageAreaClass}">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {!messageArea}        
+                        </div>
+                    </apex:outputPanel>
+                </div>
+                <div class="intro">
+                    <h1>Sessions</h1>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="WEBChampionCreateEditSession"><i class="icon-plus icon-white"></i> Add new session</a>
+                </div>
+                <div class="row-fluid">
+                    <div class="dash-mod-header">
+                        <h3>Sessions awaiting reporting</h3>
+                    </div>
+                </div>
+                <apex:outputPanel rendered="{!IF(noEventsRequiringFeedback > 0,'TRUE', 'FALSE')}" >
+                    <div class="dash-mod-content dash-mod-content-table">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="153px">Date</th>
+                                    <th width="450px">Address</th>
+                                    <th>Session Link/URL</th>
+                                    <th width="160px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                                <apex:repeat value="{!eventsRequiringFeedback}" var="reportingSession" id="eventsRequiringFeedback">
+                                    <tr class="">                        
+                                        <td>
+                                            <apex:outputText value="{0,date,dd MMM yyyy,HH:mm }"><apex:param value="{!reportingSession.Event_Date_Time__c}" /></apex:outputText>
+                                        </td>                        
+                                        <td>{!reportingSession.Street__c}, {!reportingSession.City__c}, {!reportingSession.County__c}, {!reportingSession.Postcode__c}</td>
+                                        <td><a href="{!baseSiteSecureURL}WEBSessionDetails?id={!reportingSession.Id}" class="external" target="_blank" title="Opens in new window"/>{!baseSiteSecureURL}WEBSessionDetails?eventId={!reportingSession.Id}</td>
+                                        <td class="list-actions grouped-button">
+                                            <div class="btn-group">
+                                                <a class="btn btn-small" href="WEBChampionSessionFeedback?eventId={!reportingSession.Id}">Report</a>
+                                            </div>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>               
+                            </tbody>
+                        </table>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(noEventsRequiringFeedback == 0,'TRUE', 'FALSE')}" >
+                     <p>You have no sessions available to be reported on.</p>
+                </apex:outputPanel>
+
+                <div class="row-fluid">
+                    <div class="dash-mod-header">
+                        <h3>Upcoming sessions</h3>
+                </div>
+                <apex:outputPanel rendered="{!IF(noUpcomingEvents > 0,'TRUE', 'FALSE')}" >
+                    <div class="dash-mod-content dash-mod-content-table">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="153px">Date</th>
+                                    <th width="327px">Address</th>
+                                    <th>Session Link/URL</th>
+                                    <th width="120px">Registered attendees</th>
+                                    <th width="110px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                                <apex:repeat value="{!upcomingEvents}" var="session" id="upcomingEvents">
+                                    <tr class="">                        
+                                        <td>
+                                            <apex:outputText value="{0,date,dd MMM yyyy,HH:mm }"><apex:param value="{!session.Event_Date_Time__c}"/></apex:outputText>
+                                        </td>                        
+                                        <td>{!session.Street__c}, {!session.City__c}, {!session.County__c}, {!session.Postcode__c}</td>
+                                        <td><a href="{!baseSiteSecureURL}WEBSessionDetails?id={!session.Id}" class="external" target="_blank" title="Opens in new window"/>{!baseSiteSecureURL}WEBSessionDetails?id={!session.Id}</td>
+                                        <td>{!session.Number_of_Attendees__c}</td>
+                                        <td class="list-actions grouped-button">
+                                            <div class="btn-group">
+                                                <a class="btn btn-small" href="WEBChampionCreateEditSession?eventId={!session.Id}">Edit session</a>
+                                                <a class="btn btn-small" target="_blank" href="WEBChampionSessionPrintAttendees?eventId={!session.Id}">Print Attendees</a>
+                                            </div>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>               
+                            </tbody>
+                        </table>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(noUpcomingEvents == 0,'TRUE', 'FALSE')}" >
+                    <p>You have no upcoming sessions.</p>
+                </apex:outputPanel>
+            </div>
+
+            <div class="row-fluid">
+                <div class="dash-mod-header">
+                    <h3>Past sessions</h3>
+                </div>
+                <apex:outputPanel rendered="{!IF(noPastEvents > 0,'TRUE', 'FALSE')}" >
+                    <div class="dash-mod-content dash-mod-content-table">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="153px">Date</th>
+                                    <th width="327px">Address</th>
+                                    <th>Session Link/URL</th>
+                                    <th width="120px">Dementia Friends</th>
+                                    <th width="110px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                                <apex:repeat value="{!pastEvents}" var="pastSession" id="pastEvents">
+                                    <tr class="">                        
+                                        <td>
+                                            <apex:outputText value="{0,date,dd MMM yyyy,HH:mm }"><apex:param value="{!pastSession.Event_Date_Time__c}" /></apex:outputText>
+                                        </td>                        
+                                        <td>{!pastSession.Street__c}, {!pastSession.City__c}, {!pastSession.County__c}, {!pastSession.Postcode__c}</td>
+                                        <td><a href="{!baseSiteSecureURL}WEBSessionDetails?id={!pastSession.Id}" class="external" target="_blank" title="Opens in new window"/>{!baseSiteSecureURL}WEBSessionDetails?eventId={!pastSession.Id}</td>
+                                        <td>{!pastSession.Number_of_Attendees__c}</td>
+                                        <td class="list-actions grouped-button">
+                                            <div class="btn-group">
+                                                <!-- <a class="btn btn-small" href="WEBChampionCreateEditSession?eventId={!pastSession.Id}">Edit session</a> -->
+                                                <a class="btn btn-small" href="WEBChampionSessionFeedback?eventId={!pastSession.Id}">Edit Report</a>
+                                            </div>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>               
+                            </tbody>
+                        </table>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(noPastEvents == 0,'TRUE', 'FALSE')}" >
+                    <p>You have no past sessions.</p>
+                </apex:outputPanel>
+            </div>
+
+        </section>
+        <div class="clear-both"></div>
+        </div>
+    </section>
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

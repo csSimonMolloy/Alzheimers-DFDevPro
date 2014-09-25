@@ -1,0 +1,71 @@
+<apex:page standardController="DF_Contact__c" 
+            extensions="DFRSOStatistics" 
+            readOnly="true" 
+            deferLastCommandUntilReady="true" 
+            wizard="true" >
+  <!-- Calculate Partner Organisation Statistics dynamically and show on the page -->
+  <!-- Mike Tinson 31 March 2014 -->
+   <style>
+         .bPageBlock {
+                    background-color: white !important;
+         }
+   </style>
+  <apex:pageBlock id="Detail" >
+  <apex:pageBlockSection columns="2">
+      <apex:pageBlockSectionItem >
+          <!--apex:outputLabel >Registered Events Count</apex:outputLabel-->
+          <!--apex:outputText value="{0, number, ###,###,###,##0}"-->
+              <!--apex:param value="{!Registered_Events_Count}" /-->
+          <!--/apex:outputText-->
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem helpText="Total number of completed info sessions by supported champions.">
+          <apex:outputLabel >Total No of Completed Info Sessions</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Total_No_of_Completed_Info_Sessions}" />
+          </apex:outputText>
+      </apex:pageBlockSectionItem>
+  
+      <apex:pageBlockSectionItem helpText="Total number of Dementia Friend Champions supported.">
+          <apex:outputLabel >Total No of Champions Supported</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Total_No_of_Champions_Created}" />
+          </apex:outputText>
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem helpText="Total number of available info sessions by supported champions.">
+          <apex:outputLabel >Total No of Available Info Sessions</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Total_No_of_Available_Info_Sessions}" />
+          </apex:outputText>
+      </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem helpText="Total number of cancelled info sessions by supported champions.">
+          <apex:outputLabel >Total No of Cancelled Info Sessions</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Total_No_of_Cancelled_Info_Sessions}" />
+          </apex:outputText>
+      </apex:pageBlockSectionItem>
+          
+      <apex:pageBlockSectionItem helpText="Total number of Dementia Friends created for completed sessions by supported champions." >
+          <apex:outputLabel >Total Number of Friends Created by Champions</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Total_No_of_Friends_Created}" />
+          </apex:outputText>
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem helpText="The Number of Completed Public Sessions by supported champions.">
+          <apex:outputLabel >Number of Public Sessions Run</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Number_of_Public_Sessions_Run}" />
+          </apex:outputText> 
+      </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem helpText="The Number of Completed Private Sessions by supported champions." >
+          <apex:outputLabel >Number of Private Sessions Run</apex:outputLabel>
+          <apex:outputText value="{0, number, ###,###,###,##0}">
+              <apex:param value="{!Number_of_Private_Sessions_Run}" />
+          </apex:outputText>     
+    </apex:pageBlockSectionItem>
+   </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>

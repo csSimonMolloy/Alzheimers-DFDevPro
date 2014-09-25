@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>WEB Contact Message</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WEB Contact Messages</value>
+    </caseValues>
+    <fields>
+        <label><!-- Address City --></label>
+        <name>Address_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address County --></label>
+        <name>Address_County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Post Code --></label>
+        <name>Address_PostCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Street --></label>
+        <name>Address_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Phone --></label>
+        <name>Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- DF Contact --></label>
+        <name>DF_Contact__c</name>
+        <relationshipLabel><!-- WEB Contact Messages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Received --></label>
+        <name>Date_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent To Email --></label>
+        <name>Sent_To_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+        <picklistValues>
+            <masterLabel>Business Enquiry</masterLabel>
+            <translation><!-- Business Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dementia Friend Enquiry</masterLabel>
+            <translation><!-- Dementia Friend Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dementia Friends Champion Enquiry</masterLabel>
+            <translation><!-- Dementia Friends Champion Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Enquiry</masterLabel>
+            <translation><!-- Other Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership Enquiry</masterLabel>
+            <translation><!-- Partnership Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Enquiry</masterLabel>
+            <translation><!-- Press Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website Enquiry</masterLabel>
+            <translation><!-- Website Enquiry --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>WEB Contact Message Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Message Details --></label>
+            <section>Message Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>DF Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DF Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attended? --></label>
+        <name>Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average No of Champions Created --></label>
+        <name>Average_No_of_Champions_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Number of Friends Created --></label>
+        <name>Average_No_of_Friends_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- City/Town --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Code Verefied --></label>
+        <name>Code_Verefied__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Ext Id --></label>
+        <name>Contact_Ext_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Number --></label>
+        <name>Contact_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contacted? --></label>
+        <name>Contacted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Picklist --></label>
+        <name>Country_Picklist__c</name>
+        <picklistValues>
+            <masterLabel>England</masterLabel>
+            <translation><!-- England --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Northern Ireland</masterLabel>
+            <translation><!-- Northern Ireland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wales</masterLabel>
+            <translation><!-- Wales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Loader --></label>
+        <name>Data_Loader__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Champion Training --></label>
+        <name>Date_of_Champion_Training__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eligible? --></label>
+        <name>Eligible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- FacebookId --></label>
+        <name>FacebookId__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interests --></label>
+        <name>Interests__c</name>
+        <picklistValues>
+            <masterLabel>BSL</masterLabel>
+            <translation><!-- BSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaining</masterLabel>
+            <translation><!-- Campaining --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAA</masterLabel>
+            <translation><!-- DAA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events/Exhibitions</masterLabel>
+            <translation><!-- Events/Exhibitions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Sector</masterLabel>
+            <translation><!-- Health Sector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Groups</masterLabel>
+            <translation><!-- Large Groups --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Government</masterLabel>
+            <translation><!-- Local Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Languages</masterLabel>
+            <translation><!-- Other Languages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Care Sector</masterLabel>
+            <translation><!-- Social Care Sector --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Is 18 or over --></label>
+        <name>Is_18_or_over__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lives in England? --></label>
+        <name>Lives_in_England__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make Pledge Public --></label>
+        <name>Make_Pledge_Public__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Newsletters --></label>
+        <name>Newsletters__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note --></label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Friends Influenced --></label>
+        <name>Number_of_Friends_Influenced__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Private Sessions Run --></label>
+        <name>Number_of_Private_Sessions_Run__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Public Sessions Run --></label>
+        <name>Number_of_Public_Sessions_Run__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Organisation ID --></label>
+        <name>Partner_Organisation_ID__c</name>
+        <relationshipLabel><!-- DF Champions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pledge Name --></label>
+        <name>Pledge_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Portal Contact --></label>
+        <name>Portal_Contact__c</name>
+        <relationshipLabel><!-- DF Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecordType Name --></label>
+        <name>RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional Support Officer --></label>
+        <name>Regional_Support_Officer__c</name>
+        <relationshipLabel><!-- DF Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Registered Events Count --></label>
+        <name>Registered_Events_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Code Verified --></label>
+        <name>Session_Code_Verified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Converted</masterLabel>
+            <translation><!-- Converted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hiatus/Resting</masterLabel>
+            <translation><!-- On Hiatus/Resting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective</masterLabel>
+            <translation><!-- Prospective --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total No of Available Info Sessions --></label>
+        <name>Total_No_of_Available_Info_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total No of Cancelled Info Sessions --></label>
+        <name>Total_No_of_Cancelled_Info_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total No of Champions Created --></label>
+        <name>Total_No_of_Champions_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total No of Completed Info Sessions --></label>
+        <name>Total_No_of_Completed_Info_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Friends Created --></label>
+        <name>Total_No_of_Friends_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trainer --></label>
+        <name>Trainer__c</name>
+        <relationshipLabel><!-- DF Contacts (Trainer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type of Champion --></label>
+        <name>Type_of_Champion__c</name>
+        <picklistValues>
+            <masterLabel>Children’s Champion</masterLabel>
+            <translation><!-- Children’s Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Champion</masterLabel>
+            <translation><!-- Digital Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fast tracked</masterLabel>
+            <translation><!-- Fast tracked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mentor Champion</masterLabel>
+            <translation><!-- Mentor Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR Champion</masterLabel>
+            <translation><!-- PR Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pilot</masterLabel>
+            <translation><!-- Pilot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff Champion</masterLabel>
+            <translation><!-- Staff Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Champion</masterLabel>
+            <translation><!-- Super Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type 1</masterLabel>
+            <translation><!-- Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type 2</masterLabel>
+            <translation><!-- Type 2 --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Dementia Friend</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Pledge Information --></label>
+            <section>Pledge Information</section>
+        </sections>
+        <sections>
+            <label><!-- Pre &amp; Post Session Information --></label>
+            <section>Pre &amp; Post Session Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dementia Friend Champion</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Pre &amp; Post Session Information --></label>
+            <section>Pre &amp; Post Session Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>E-Newsletter Subscriber</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RSO</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- RSO Statistics --></label>
+            <section>RSO Statistics</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Admin --></label>
+        <name>Admin</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dementia Friend --></label>
+        <name>Dementia_Friend</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dementia Friend Champion --></label>
+        <name>Dementia_Friend_Champion</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- E-Newsletter Subscriber --></label>
+        <name>E_Newsletter_Subscriber</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- RSO --></label>
+        <name>RSO</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Registration --></label>
+        <name>Registration</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Northern Ireland cannot be selected as a value in the Country Picklist as it is not selectable on the Dementia Friends website --></errorMessage>
+        <name>Do_Not_Allow_Northern_Ireland_in_Country</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the correct email format --></errorMessage>
+        <name>EMail_Validaiton</name>
+    </validationRules>
+</CustomObjectTranslation>

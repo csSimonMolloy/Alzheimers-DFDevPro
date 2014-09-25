@@ -1,0 +1,66 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html" controller="WEBRegister">
+    
+    <c:WEBMetaNoCSS title="Dementia Friends" />
+    <!-- <c:WEBMeta title="Dementia Friend" /> -->
+    <!-- NEW CSS CODE -->
+    <apex:stylesheet value="{!URLFOR($Resource.WEBCSS,'WEBCSS.css')}" />
+    <!-- END OF NEW CSS CODE -->
+    
+    <body class="">
+    <div id="skip">
+        <a href="#page_content">Skip to Main Content</a>
+    </div>        
+
+    <c:WEBHeader activeValue="" />
+    <div id="page_content"></div>
+    
+    <!-- YOUR CONTENT GOES AFTER HERE -->
+ <div id="page_content"></div>
+        <section id="register-index">
+    <section class="page-content ">
+        <div class="wrapper">
+        <section class="main-content">
+            <h1>Registration</h1>
+            <div class="snippet snippet-rich_text rte">
+            <p><apex:outputText value="{!registerText.Body_Text__c}" escape="false"/></p>
+            </div>
+            <section id="friend" class="register">
+                <a href="WEBRegisterFriend" class="btn btn-primary">Register<span> as a Dementia Friend</span></a>
+                <header class="header">
+                    <h2>Dementia Friend</h2>
+                </header>
+                <div class="whats-involved">
+                    <header class="header">
+                        <h3>What's involved in being a Friend</h3>
+                    </header>
+                    <div class="snippet snippet-rich_text rte">
+    <ul><li>Live in England or Wales</li><li>Be of any age</li><li>Attend a Dementia Friends' information session close to where you live, lasting about one hour</li><li>Do something practical to help people living with dementia in your community</li><li>Post your Dementia Friends action on the Dementia Friends website</li></ul>    </div>                </div>
+                <a href="WEBArticle?page=what-is-a-friend" class="arrow">What is a Friend?</a>
+            </section>
+            <section id="friend-champion" class="register">
+                <a href="WEBRegisterChampion" class="btn btn-primary">Register<span> as a Dementia Friends Champion</span></a>
+                <header class="header">
+                    <h2>Dementia Friends Champion</h2>
+                </header>
+
+                <div class="whats-involved">
+                    <header class="header">
+                        <h3>What's involved in being a Champion</h3>
+                    </header>
+                    <div class="snippet snippet-rich_text rte">
+    <ul><li>Genuinely have the time to run Dementia Friends information sessions and reach around 100 people</li><li>Be over 18 years old</li><li>Be a good communicator and speak objectively about dementia</li><li>Enjoy talking to groups of people</li><li>Have access to the internet and be willing to record the number of Friends you reach by the website</li><li>Keen to set up information sessions in workplaces and your local community</li><li>Enthusiastic about Dementia Friends</li><li>Voluntarily attend a whole day training session </li></ul>    </div>                </div>
+                <a href="WEBArticle?page=what-is-a-champion" class="arrow">What is a Champion?</a>
+            </section>
+        </section>
+        </div>
+    </section>
+</section> 
+    
+
+
+    <!-- YOUR CONTENT GOES BEFORE HERE -->
+    <c:WEBFooter />
+
+    </body>
+
+</apex:page>

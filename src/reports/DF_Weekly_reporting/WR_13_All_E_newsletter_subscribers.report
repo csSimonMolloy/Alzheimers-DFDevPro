@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.First_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.Email__c</field>
+    </columns>
+    <columns>
+        <field>DF_Contact__c.RecordType_Name__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>DF_Contact__c.Newsletters__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>WR - 13. All E-newsletter subscribers</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$DF_Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Contact__c.Date_of_Champion_Training__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

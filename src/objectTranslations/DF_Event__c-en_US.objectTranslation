@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <value>DF Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DF Events</value>
+    </caseValues>
+    <fields>
+        <label><!-- Available On Website --></label>
+        <name>Available_On_Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Loader --></label>
+        <name>Data_Loader__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Date &amp; Time --></label>
+        <name>Event_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Description --></label>
+        <name>Event_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event End Date Time --></label>
+        <name>Event_End_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Ext Id --></label>
+        <name>Event_Ext_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Status --></label>
+        <name>Event_Status__c</name>
+        <picklistValues>
+            <masterLabel>Available</masterLabel>
+            <translation><!-- Available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location Geographic Details --></label>
+        <name>Location_Geographic_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Attendee Records --></label>
+        <name>Number_Of_Attendee_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Champions Attended --></label>
+        <name>Number_Of_Champions_Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Attendees --></label>
+        <name>Number_of_Attendees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Places --></label>
+        <name>Number_of_Places__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public Event --></label>
+        <name>Public_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecordType Name --></label>
+        <name>RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Organiser --></label>
+        <name>Session_Organiser__c</name>
+        <relationshipLabel><!-- Sessions Organised --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Session Hours --></label>
+        <name>Total_Session_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trainer --></label>
+        <name>Trainer__c</name>
+        <relationshipLabel><!-- DF Events (Trainer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Wheel Chair Access --></label>
+        <name>Wheel_Chair_Access__c</name>
+    </fields>
+    <layouts>
+        <layout>Champion Training Course</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Details --></label>
+            <section>Location Details</section>
+        </sections>
+        <sections>
+            <label><!-- Session Details --></label>
+            <section>Session Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DF Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Details --></label>
+            <section>Location Details</section>
+        </sections>
+        <sections>
+            <label><!-- Session Details --></label>
+            <section>Session Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dementia Friend Awareness Session</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Details --></label>
+            <section>Location Details</section>
+        </sections>
+        <sections>
+            <label><!-- Session Details --></label>
+            <section>Session Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Champion Training Course --></label>
+        <name>Champion_Training_Course</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dementia Friend Awareness Session --></label>
+        <name>Dementia_Friend_Awareness_Session</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Event_Attendee_List --></label>
+        <name>Event_Attendee_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Filter_Attendees --></label>
+        <name>Filter_Attendees</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Update_Attendee_Status --></label>
+        <name>Update_Attendee_Status</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Update_Attendees_Status --></label>
+        <name>Update_Attendees_Status</name>
+    </webLinks>
+</CustomObjectTranslation>

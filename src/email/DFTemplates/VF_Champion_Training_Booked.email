@@ -1,0 +1,46 @@
+<messaging:emailTemplate subject="Dementia Friends Champions training booked" recipientType="Contact" relatedToType="DF_EventAttendee__c">
+<messaging:htmlEmailBody >
+<!-- <img src="{!URLFOR($Resource.img, 'img/f/logo.png')}" height="103" width="259" alt="Dementia Friends" /> -->
+<apex:image id="Logo" value="https://c.eu0.content.force.com/servlet/servlet.ImageServer?id=01520000001HfE1&oid=00D20000000CwQc" height="103" width="259"/>
+<br/>
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+<br/><br/>
+Thanks for registering for the Dementia Friends Champions' training session on  <apex:outputText value=" {0,date,dd'/'MM'/'yyyy} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText> at <apex:outputText value=" {0,time,hh:mm} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText> and for being part of the change to create one million dementia friends. It's a huge challenge but we know with your help we'll get there. 
+<br/><br/>
+To view up to date details of the course, please <a href="http://http://asdf.force.com/WEBTrainingDetails?Id={!relatedTo.DF_Event__r.Id}">click here</a>
+<br/><br/>
+Course date: - {!relatedTo.DF_Event__r.Event_Date_Time__c}<br/>
+Course location: -    {!relatedTo.DF_Event__r.Location__c}<br/>
+                      {!relatedTo.DF_Event__r.Street__c}<br/>
+                      {!relatedTo.DF_Event__r.City__c}<br/>
+                      {!relatedTo.DF_Event__r.County__c}<br/>
+                      {!relatedTo.DF_Event__r.Postcode__c}
+                                          
+<br/><br/>
+If you can no longer make the Dementia Friends Champions training on <apex:outputText value=" {0,date,dd'/'MM'/'yyyy} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText> at <apex:outputText value=" {0,time,hh:mm} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText>, please visit the website and unregister.
+<br/><br/>
+Kind regards,
+<br/><br/>
+Dementia Friends
+<br/><br/>
+<a href="http://www.dementiafriends.org.uk">http://www.dementiafriends.org.uk</a>
+
+</messaging:htmlEmailBody>
+
+<messaging:plainTextEmailBody >
+Dear {!relatedTo.DF_Contact__r.First_Name__c} {!relatedTo.DF_Contact__r.Last_Name__c},
+
+Thanks for registering for the Dementia Friends Champions' training session on <apex:outputText value=" {0,date,dd'/'MM'/'yyyy} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText> at <apex:outputText value=" {0,time,hh:mm} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText>  and being part of the change to create one million dementia friends. It's a huge challenge but we know with your help we'll get there. 
+
+Course date: - {!relatedTo.DF_Event__r.Event_Date_Time__c}<br/>
+Course location: - {!relatedTo.DF_Event__r.Location__c}
+
+If you can no longer make the Dementia Friends Champions training on <apex:outputText value=" {0,date,dd'/'MM'/'yyyy} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText> at <apex:outputText value=" {0,time,hh:mm} "><apex:param value="{!relatedTo.DF_Event__r.Event_Date_Time__c}"/></apex:outputText>, please visit the website and unregister.
+
+Kind regards,
+
+Dementia Friends
+
+http://www.dementiafriends.org.uk
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

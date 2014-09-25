@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>DF_Event__c$Event_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$RecordType_Name__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Name</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Session_Organiser__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Postcode__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Event_Ext_Id__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Number_of_Attendees__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Number_of_Places__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Public_Event__c</field>
+    </columns>
+    <columns>
+        <field>DF_Event__c$Comments__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>DF_Event__c$RecordType_Name__c</column>
+            <operator>equals</operator>
+            <value>dementia friend awareness session</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>JB data - 22 July</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>DF_events_only__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DF_Event__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
