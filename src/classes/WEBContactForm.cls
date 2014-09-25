@@ -237,6 +237,7 @@ public with sharing class WEBContactForm extends WEBController {
             webSubjectErrorClass = '';
             webSubjectError = '';
             //Get the contact option email address, so we know who to send this to
+            //If there are none defined, we can use the default one.
             Contact_Option__c contactOption = Contact_Option__c.getInstance(webSubject);
             if (contactOption != null){
                 contactOptionEmailAddress = contactOption.Email_Address__c;
